@@ -17,6 +17,7 @@ def main() -> None:
 
     model = load_model("bert-base-uncased", device="cpu")
 
+
     texts = [
         "I feel joy.",
         "I feel happiness.",
@@ -47,9 +48,14 @@ def main() -> None:
     # Sanity: "joy" should be closer to "happiness" than to "sadness" (not guaranteed but common)
     sim_joy_happy = cosine_sim(X[0], X[1])
     sim_joy_sad = cosine_sim(X[0], X[2])
+    sim_joy_cat = cosine_sim(X[0], X[3])
+    assert sim_joy_happy >= sim_joy_cat + 0.05
+
 
     print("cos(joy, happiness) =", sim_joy_happy)
     print("cos(joy, sadness)   =", sim_joy_sad)
+
+
 
     # Soft assertion: allow small margin, but usually should hold
     assert sim_joy_happy >= sim_joy_sad - 0.02, (

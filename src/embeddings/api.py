@@ -6,7 +6,7 @@ from typing import Literal, Optional, Sequence, Union
 
 import numpy as np
 
-from src.utils import get_device
+from utils import get_device
 
 from .bert_embeddings import (
     BertBundle,
