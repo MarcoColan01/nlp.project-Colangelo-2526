@@ -29,3 +29,5 @@ results/
 *.ckpt
 *.onnx
 *.npz
+
+tests
