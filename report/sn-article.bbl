@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{3}
+\begin{thebibliography}{2}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -71,19 +71,6 @@ TinyBERT: Distilling BERT for Natural Language Understanding
 Distilling the Knowledge in a Neural Network
 (2015).
 \url{https://arxiv.org/abs/1503.02531}
-\end{botherref}
-\endbibitem
-
-%%% 3
-\bibitem[\protect\citeauthoryear{Ji and
-  Zhu}{2020}]{ji2020knowledgedistillationwideneural}
-\begin{botherref}
-\oauthor{\bsnm{Ji}, \binits{G.}},
-\oauthor{\bsnm{Zhu}, \binits{Z.}}:
-Knowledge Distillation in Wide Neural Networks: Risk Bound, Data Efficiency and
-  Imperfect Teacher
-(2020).
-\url{https://arxiv.org/abs/2010.10090}
 \end{botherref}
 \endbibitem
 
