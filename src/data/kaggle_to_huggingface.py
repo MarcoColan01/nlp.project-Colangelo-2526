@@ -185,10 +185,9 @@ def puzzle_hash(words16: Sequence[str]) -> str:
 def save_jsonl(records: Sequence[Dict], out_path: Union[str, Path]) -> None:
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    import json as _json
     with out_path.open("w", encoding="utf-8") as f:
         for r in records:
-            f.write(_json.dumps(r, ensure_ascii=False) + "\n")
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 
 def quick_validate(records: Sequence[Dict]) -> tuple[int, int]:
