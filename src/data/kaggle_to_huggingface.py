@@ -1,7 +1,7 @@
 """
 Kaggle -> HuggingFace-like conversion for NYT Connections datasets.
 
-Supports This Kaggle CSV format:
+Supports This Kaggle CSV formats:
 
 (B) "word-per-row" (16 rows per date) like Connections_Data.csv:
     Game ID, Puzzle Date, Word, Group Name, Group Level, Starting Row, Starting Column
@@ -28,8 +28,8 @@ from typing import Dict, List, Optional, Sequence, Union
 
 import pandas as pd
 import numpy as np
-import json
 import hashlib
+import json
 
 
 DEFAULT_ALIASES = {
@@ -45,11 +45,7 @@ class KaggleToHFConfig:
     seed: int = 1234
     normalize_whitespace: bool = True
     shuffle_words: bool = True
-
-    # filtering
     min_date_inclusive: Optional[str] = None  # e.g., "2025-03-25"
-
-    # strictness / cleanup
     drop_incomplete_dates: bool = True
     require_four_groups: bool = True
     require_sixteen_words: bool = True
@@ -94,10 +90,9 @@ def kaggle_rows_to_puzzles(df: pd.DataFrame, *, config: KaggleToHFConfig = Kaggl
     if date_b and word_b and group_b:
         return _format_b(df, config=config, date_col=date_b, word_col=word_b, group_col=group_b)
 
-
     raise KeyError(
         "Could not auto-detect Kaggle format. "
-        "Expected Puzzle Date + Word + Group Name. "
+        "Expected either (A) date+category+w1..w4 or (B) Puzzle Date + Word + Group Name. "
         f"Columns found: {list(df.columns)}"
     )
 
@@ -163,14 +158,19 @@ def _format_b(df: pd.DataFrame, *, config: KaggleToHFConfig, date_col: str, word
                 continue
             raise ValueError(f"{key}: expected 16 words, got {len(all_words)}")
 
-        pid = f"kaggle_{date}" if game_id is None else f"kaggle_{date}_{game_id}"
+        pid = f"kaggle_{date}" if game_id is None else f"kaggle_{date}_{int(game_id)}"
         puzzles.append(
             {
                 "puzzle_id": pid,
                 "date": date,
                 "words": _make_words_list(all_words, rng=rng, shuffle=config.shuffle_words),
                 "answers": answers,
-                "metadata": {"source": "kaggle", "seed": config.seed, "format": "B", "game_id": game_id},
+                "metadata": {
+                    "source": "kaggle",
+                    "seed": config.seed,
+                    "format": "B",
+                    "game_id": (int(game_id) if game_id is not None else None),
+                },
             }
         )
 
@@ -183,11 +183,30 @@ def puzzle_hash(words16: Sequence[str]) -> str:
 
 
 def save_jsonl(records: Sequence[Dict], out_path: Union[str, Path]) -> None:
+    """
+    JSONL save with a safe default handler for numpy scalar types (e.g., int64).
+    """
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    def _default(o):
+        try:
+            if isinstance(o, (np.integer,)):
+                return int(o)
+            if isinstance(o, (np.floating,)):
+                return float(o)
+        except Exception:
+            pass
+        if hasattr(o, "item"):
+            try:
+                return o.item()
+            except Exception:
+                pass
+        return str(o)
+
     with out_path.open("w", encoding="utf-8") as f:
         for r in records:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+            f.write(json.dumps(r, ensure_ascii=False, default=_default) + "\n")
 
 
 def quick_validate(records: Sequence[Dict]) -> tuple[int, int]:
