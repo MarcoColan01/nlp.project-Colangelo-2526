@@ -7,7 +7,7 @@ def _parse_date(s: str) -> datetime:
 
 def _date_key(rec: Dict) -> str:
     d = rec.get("date")
-    if d is not None:
+    if d is None:
         raise ValueError("Record missing 'date' field; required for temporal split.")
     return str(d)
 
@@ -16,8 +16,8 @@ def unique_dates(records: Sequence[Dict]) -> List[str]:
 
 def split_by_date(records: List[Dict], *, split_date:str) -> Tuple[List[Dict], List[Dict]]:
     sd = _parse_date(split_date)
-    val = List[Dict] = []
-    test = List[Dict] = [] 
+    val: List[Dict] = []
+    test: List[Dict] = [] 
     for record in records: 
         d = _parse_date(_date_key(record))  
         (test if d >= sd else val).append(record)

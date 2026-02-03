@@ -13,3 +13,10 @@ def read_jsonl(path: Union[str, Path]) -> List[Dict]:
                 continue 
             out.append(json.loads(line))
     return out
+
+def write_jsonl(records: List[Dict], path: Union[str, Path]) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as f:
+        for r in records:
+            f.write(json.dumps(r, ensure_ascii=False, default=str) + "\n")
