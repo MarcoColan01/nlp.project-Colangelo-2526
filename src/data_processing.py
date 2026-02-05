@@ -3,24 +3,49 @@ import pandas as pd
 from sklearn.model_selection import train_test_split 
 import json 
 import logging 
+import random
 
 #Log Config 
 logging.basicConfig(level=logging.INFO, format = '%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-def load_swow_data(file_path):
+def load_swow_data(file_path, sample_size=None, seed=42):
     '''
-    Load the SWOW dataset, only the cue, R1, R2, R£ columns 
+    Load the SWOW dataset, only the cue, R1, R2, R3 columns.
+    If sample_size is provided, loads a random sample of n rows using skiprows logic.
     '''
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"File not found: {file_path}")
     
     logger.info(f"Loading dataset from {file_path}...")
+    
+    if sample_size is not None:
+        logger.info(f"Sampling {sample_size} random rows...")
+        random.seed(seed)
+        
+        # Conta le righe totali (escluso header)
+        try:
+            # Conta rapida delle linee
+            with open(file_path, 'r', encoding='utf-8') as f:
+                n_total_lines = sum(1 for _ in f) - 1
+        except UnicodeDecodeError:
+            with open(file_path, 'r', encoding='latin1') as f:
+                n_total_lines = sum(1 for _ in f) - 1
+
+        if sample_size < n_total_lines:
+
+            n_skip = n_total_lines - sample_size
+            skip = sorted(random.sample(range(1, n_total_lines + 1), n_skip))
+        else:
+            logger.warning(f"Sample size ({sample_size}) >= total rows ({n_total_lines}). Loading all data.")
+            skip = None
+    else:
+        skip = None
 
     try:
-        df = pd.read_csv(file_path, on_bad_lines='skip', encoding='utf-8')
+        df = pd.read_csv(file_path, on_bad_lines='skip', skiprows=skip, encoding='utf-8')
     except UnicodeDecodeError:
-        df = pd.read_csv(file_path, on_bad_lines='skip', encoding = 'latin1')
+        df = pd.read_csv(file_path, on_bad_lines='skip', skiprows=skip, encoding = 'latin1')
 
     #Standardization of column's names 
     df.columns = [column.lower() for column in df.columns]
@@ -30,7 +55,6 @@ def load_swow_data(file_path):
         raise ValueError(f"The CSV must contain the following columns: {required_cols}")
     
     initial_len = len(df)
-    #initial_len 
     df = df.dropna(subset=required_cols)
     logger.info(f"Loaded rows: {initial_len}. Ok rows after dropna: {len(df)}")
 
@@ -56,11 +80,12 @@ def format_swow_entry(row):
         "full_text": prompt + completion
     }
 
-def process_swow(input_path, output_dir, test_size=0.05, seed=42):
+def process_swow(input_path, output_dir, test_size=0.05, seed=42, sample_size=None):
     '''
     This function loads, formats, splits (95% test / 5% validation) and save as a JSONL the SWOW dataset
+    sample_size: Number of random examples to load. If None, loads all.
     '''
-    df = load_swow_data(input_path)
+    df = load_swow_data(input_path, sample_size=sample_size, seed=seed)
     logger.info("Data format in progress...")
 
     formatted_data = df.apply(format_swow_entry, axis=1).tolist()
@@ -90,10 +115,7 @@ if __name__ == "__main__":
     PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
 
     try:
-        process_swow(RAW_DATA_PATH, PROCESSED_DIR)
+        # Esempio: carica solo 50k righe per fare veloce
+        process_swow(RAW_DATA_PATH, PROCESSED_DIR, sample_size=50000)
     except Exception as e:
-        logger.error(f"Error during execution of Data Preprocessing: {e}") 
-
-
-
-
+        logger.error(f"Error during execution of Data Preprocessing: {e}")
