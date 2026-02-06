@@ -20,9 +20,8 @@ class GeneralDistillation:
         logger.info("Loading Teacher (DeepSeek)...")
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
             bnb_4bit_use_double_quant=True,
-            bnb_4bit_compute_dtype=torch.float16, 
         )
         self.teacher = AutoModelForCausalLM.from_pretrained(
             teacher_model_id, quantization_config = bnb_config, 
@@ -33,8 +32,7 @@ class GeneralDistillation:
             output_attentions=True
         )
         self.teacher.eval()
-        self.teacher.requires_grad_(False)
-        self.teacher.config.use_cache = False
+
         #Loading Student 
         logger.info("Loading Student (LLama 3.2 1B)...")
         self.student = AutoModelForCausalLM.from_pretrained(
@@ -43,6 +41,9 @@ class GeneralDistillation:
             output_hidden_states=True,
             output_attentions=True
         ).to(self.device)
+        self.teacher.config.use_cache = False
+        self.student.config.use_cache = False
+
 
         #Tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(student_model_id)
@@ -125,7 +126,7 @@ class GeneralDistillation:
                 inputs = {k: v.to(self.device) for k,v in batch.items()}
 
                 #1. Forward Teacher (No Grad)
-                with torch.inference_mode():
+                with torch.no_grad():
                     teacher_outputs = self.teacher(**inputs)
                 
                 #2. Forward Student (Grad)
