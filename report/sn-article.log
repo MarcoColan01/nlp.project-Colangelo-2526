@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.2)  27 JAN 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  7 FEB 2026 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex
-(c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+**c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex
+(c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
 (sn-jnl.cls
 Document Class: sn-jnl 2019/11/18 v0.1: An authoring template for Springer Journal articles
 (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -135,7 +135,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen178
 \Gin@req@width=\dimen179
@@ -156,7 +156,7 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@ppsavesec=\count297
 \c@@ppsaveapp=\count298
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
@@ -176,7 +176,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
@@ -186,7 +186,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count299
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count300
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
@@ -195,7 +195,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count301
 \Hy@pagecounter=\count302
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
@@ -203,23 +203,23 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count303
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
+Package hyperref Info: Bookmarks ON on input line 4468.
 \c@Hy@tempcnt=\count304
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
+LaTeX Info: Redefining \url on input line 4807.
 \XeTeXLinkMargin=\dimen181
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -229,20 +229,20 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count305
 \Field@Width=\dimen182
 \Fld@charsize=\dimen183
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
 \Hy@abspage=\count306
 \c@Item=\count307
 \c@Hfootnote=\count308
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
 \Fld@listcount=\count309
 \c@bookmark@seq@number=\count310
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
@@ -427,7 +427,7 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@dima=\skip66
 \bigstrutjot=\dimen186
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip67
 
 For additional information on amsmath, use the `?' option.
@@ -488,8 +488,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip68
 \multlinetaggap=\skip69
 \mathdisplay@stack=\toks34
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
@@ -589,17 +589,24 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 \lst@lineno=\count345
 \lst@maxwidth=\dimen269
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 \c@lstnumber=\count346
 \lst@skipnumbers=\count347
 \lst@framebox=\box77
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
+File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks39
 \verbatim@line=\toks40
@@ -610,7 +617,7 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \c@remark=\count350
 \c@definition=\count351
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count352
 ) (sn-article.aux)
 \openout1 = `sn-article.aux'.
@@ -724,21 +731,17 @@ LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
 
 LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 50.
 
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
 {C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (sn-article.bbl)
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2] (sn-article.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
  ***********
 
 
@@ -749,15 +752,15 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: 4DEF933F720DDCCAE843C32FAE32175B;1538.
  ) 
 Here is how much of TeX's memory you used:
- 14474 strings out of 468133
- 223758 string characters out of 5430712
- 640803 words of memory out of 5000000
- 42839 multiletter control sequences out of 15000+600000
- 644382 words of font info for 109 fonts, out of 8000000 for 9000
+ 14465 strings out of 467866
+ 223634 string characters out of 5418326
+ 644332 words of memory out of 5000000
+ 43096 multiletter control sequences out of 15000+600000
+ 645278 words of font info for 109 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,7n,93p,1143b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,7n,93p,1143b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on sn-article.pdf (2 pages, 146554 bytes).
+Output written on sn-article.pdf (2 pages, 149847 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  19 named destinations out of 1000 (max. 500000)

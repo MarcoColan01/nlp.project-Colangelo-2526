@@ -11,10 +11,13 @@ import json
 import zipfile 
 from kaggle.api.kaggle_api_extended import KaggleApi
 
-with open('kaggle.json', 'r') as f:
-    data = json.load(f)
-    os.environ['KAGGLE_USERNAME'] = data['username']
-    os.environ['KAGGLE_KEY'] = data['key']
+try:
+    with open('kaggle.json', 'r') as f:
+        data = json.load(f)
+        os.environ['KAGGLE_USERNAME'] = data['username']
+        os.environ['KAGGLE_KEY'] = data['key']
+except IOError:
+    print(f"kaggle.json not found on src folder. Please provide your kaggle.json file")
 
 
 api = KaggleApi()
