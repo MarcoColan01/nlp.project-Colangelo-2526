@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  11 FEB 2026 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  12 FEB 2026 09:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,13 +760,13 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 Here is how much of TeX's memory you used:
  14477 strings out of 467866
  223918 string characters out of 5418326
- 643358 words of memory out of 5000000
+ 644358 words of memory out of 5000000
  43103 multiletter control sequences out of 15000+600000
  645623 words of font info for 110 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,8n,93p,1608b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,8n,93p,1608b,627s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on sn-article.pdf (4 pages, 175717 bytes).
+Output written on sn-article.pdf (4 pages, 175566 bytes).
 PDF statistics:
  143 PDF objects out of 1000 (max. 8388607)
  23 named destinations out of 1000 (max. 500000)
