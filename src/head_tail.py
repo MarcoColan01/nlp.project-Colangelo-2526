@@ -68,3 +68,74 @@ def apply_head_tail_truncation(
     out_df["token_type_ids"] = [[0]*len(x) for x in input_ids_list]
 
     return out_df
+
+
+def head_tail_tokenize_batch(
+        examples: dict,
+        tokenizer: PreTrainedTokenizerBase,
+        max_length: int = 512,
+        head_len: int = 128,
+        text_col: str = "text",
+) -> dict:
+    """Tokenize a batch of texts with Head+Tail truncation.
+
+    This function is intended to be used with Hugging Face Datasets:
+        ds = ds.map(lambda x: head_tail_tokenize_batch(x, tokenizer), batched=True)
+
+    It produces sequences shaped as:
+        [CLS] + first `head_len` tokens + last `tail_len` tokens + [SEP]
+    where tail_len = max_length - head_len - 2.
+
+    Notes
+    -----
+    - Assumes a BERT-like tokenizer with CLS/SEP tokens.
+    - Does not pad; use a DataCollatorWithPadding at training time.
+    """
+    tail_len = max_length - head_len - 2
+    if tail_len <= 0:
+        raise ValueError("head_len is too large for the chosen max_length")
+
+    texts = [str(t) for t in examples[text_col]]
+    enc = tokenizer(
+        texts,
+        add_special_tokens=True,
+        truncation=False,
+        padding=False,
+    )
+
+    cls_id = tokenizer.cls_token_id
+    sep_id = tokenizer.sep_token_id
+    if cls_id is None or sep_id is None:
+        raise ValueError("Tokenizer must define cls_token_id and sep_token_id")
+
+    input_ids_out = []
+    attn_out = []
+    token_type_out = []
+
+    for ids in enc["input_ids"]:
+        # ids already include [CLS] ... [SEP]
+        if len(ids) <= max_length:
+            final_ids = ids
+        else:
+            head_part = ids[: head_len + 1]          # [CLS] + head
+            tail_part = ids[-(tail_len + 1):]        # tail + [SEP]
+            final_ids = head_part + tail_part
+
+            # safety: enforce special tokens
+            if final_ids[0] != cls_id:
+                final_ids[0] = cls_id
+            if final_ids[-1] != sep_id:
+                final_ids[-1] = sep_id
+
+        final_ids = final_ids[:max_length]
+        mask = [1] * len(final_ids)
+
+        input_ids_out.append(final_ids)
+        attn_out.append(mask)
+        token_type_out.append([0] * len(final_ids))
+
+    return {
+        "input_ids": input_ids_out,
+        "attention_mask": attn_out,
+        "token_type_ids": token_type_out,
+    }

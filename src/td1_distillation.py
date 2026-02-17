@@ -53,17 +53,18 @@ class TD1Trainer(Trainer):
             *args, **kwargs
     ):
         super().__init__(*args, **kwargs)
+        self.label_names = ["labels"]
         self.teacher = teacher_model
         self.teacher.eval()
         for p in self.teacher.parameters():
             p.requires_grad = False
         
         self.layer_mapping = layer_mapping or {0: 5, 1: 11, 2: 17, 3: 23}
-        self.lambda_emb = lambda_emb,
-        self.lambda_hid = lambda_hid,
+        self.lambda_emb = lambda_emb
+        self.lambda_hid = lambda_hid
         self.lambda_attn = lambda_attn
     
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None, **kwargs):
         labels = inputs.pop("labels", None)
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
         attention_mask = inputs.get("attention_mask", None)
@@ -103,7 +104,7 @@ class TD1Trainer(Trainer):
         loss_attn = 0.0 
         for student_idx, teacher_idx in self.layer_mapping.items():
             student_attn = student_out.attentions[student_idx]
-            teacher_attn = student_out.attentions[teacher_idx]
+            teacher_attn = teacher_out.attentions[teacher_idx]
             teacher_attn_pooled = pool_teacher_heads(teacher_attn)
 
             if attention_mask is not None:
@@ -118,4 +119,6 @@ class TD1Trainer(Trainer):
             self.lambda_attn*loss_attn
         )
 
-        return(total, student_out) if return_outputs else total 
+        if return_outputs:
+            return total, student_out.logits   # <-- SOLO logits
+        return total
