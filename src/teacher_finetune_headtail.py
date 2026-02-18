@@ -11,9 +11,7 @@ from transformers import (
     AutoConfig,
     AutoModelForSequenceClassification,
     AutoTokenizer,
-    DataCollatorWithPadding,
-    Trainer,
-    TrainingArguments
+    Trainer
 )
 from sklearn.metrics import (
     accuracy_score,
@@ -45,7 +43,6 @@ def build_teacher_model(cfg: TeacherModelConfig):
     config = AutoConfig.from_pretrained(
         cfg.model_name,
         num_labels=1, 
-        problem_type="multi_label_classification", # Forza l'uso di BCE internamente se non sovrascritto
         hidden_dropout_prob=cfg.hidden_dropout_prob,
         attention_probs_dropout_prob=cfg.attention_probs_dropout_prob,
     )
@@ -121,7 +118,7 @@ class WeightedBCETrainer(Trainer):
     """
     Trainer custom per gestire la Weighted Binary Cross Entropy.
     """
-    def __init__(self, pos_weight=None, *args, **kwargs):
+    def __init__(self, *args, pos_weight=None, **kwargs):
         super().__init__(*args, **kwargs)
         # pos_weight deve essere un float o None.
         # Se None, si usa BCE standard.
