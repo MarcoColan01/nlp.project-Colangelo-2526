@@ -142,6 +142,7 @@ class Phase1DistillationTrainer(Trainer):
         self.lambda_attn = lambda_attn
         self.attn_clamp_val = attn_clamp_val
         self.debug_finite_check = debug_finite_check
+        self._last_td_logs = {}
 
     def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         # labels non servono in TD-1
@@ -200,6 +201,13 @@ class Phase1DistillationTrainer(Trainer):
             self.lambda_attn * loss_attn
         )
 
+        self._last_td_logs = {
+            "td_loss_embd": float(loss_embd.detach().cpu()),
+            "td_loss_hidn": float(loss_hidn.detach().cpu()) if torch.is_tensor(loss_hidn) else float(loss_hidn),
+            "td_loss_attn": float(loss_attn.detach().cpu()) if torch.is_tensor(loss_attn) else float(loss_attn),
+            "td_loss_total_raw": float(loss.detach().cpu()),
+        }
+
         if self.debug_finite_check and (not torch.isfinite(loss)):
             raise FloatingPointError(
                 f"Non-finite TD1 loss. "
@@ -207,3 +215,8 @@ class Phase1DistillationTrainer(Trainer):
             )
 
         return (loss, student_outputs) if return_outputs else loss
+    
+    def log(self, logs, *args, **kwargs):
+        if isinstance(logs, dict) and self._last_td_logs:
+            logs = {**logs, **self._last_td_logs}
+        return super().log(logs, *args, **kwargs)
