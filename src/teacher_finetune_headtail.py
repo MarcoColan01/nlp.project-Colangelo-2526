@@ -39,7 +39,6 @@ def build_teacher_tokenizer(model_name: str):
     return AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
 def build_teacher_model(cfg: TeacherModelConfig):
-    """Costruisce il modello per classificazione binaria (1 output logit)."""
     config = AutoConfig.from_pretrained(
         cfg.model_name,
         num_labels=2, 

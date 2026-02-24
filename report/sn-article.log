@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  12 FEB 2026 09:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  23 FEB 2026 15:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -611,35 +611,50 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks39
 \verbatim@line=\toks40
 \verbatim@in@stream=\read2
+) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+ (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen270
+\ar@mcellbox=\box78
+\extrarowheight=\dimen271
+\NC@list=\toks41
+\extratabsurround=\skip73
+\backup@length=\skip74
+\ar@cellbox=\box79
 )
-\c@theorem=\count348
-\c@example=\count349
-\c@remark=\count350
-\c@definition=\count351
+\rotheadsize=\dimen272
+\c@nlinenum=\count348
+\TeXr@lab=\toks42
+)
+\c@theorem=\count349
+\c@example=\count350
+\c@remark=\count351
+\c@definition=\count352
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count352
+\l__color_backend_stack_int=\count353
 ) (sn-article.aux)
 \openout1 = `sn-article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -678,58 +693,58 @@ LaTeX Font Info:    ... okay on input line 32.
 
 (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count353
-\scratchdimen=\dimen270
-\scratchbox=\box78
-\nofMPsegments=\count354
-\nofMParguments=\count355
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count356
-\MPscratchDim=\dimen271
-\MPnumerator=\count357
-\makeMPintoPDFobject=\count358
-\everyMPtoPDFconversion=\toks42
+\scratchcounter=\count354
+\scratchdimen=\dimen273
+\scratchbox=\box80
+\nofMPsegments=\count355
+\nofMParguments=\count356
+\everyMPshowfont=\toks43
+\MPscratchCnt=\count357
+\MPscratchDim=\dimen274
+\MPnumerator=\count358
+\makeMPintoPDFobject=\count359
+\everyMPtoPDFconversion=\toks44
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \S on input line 32.
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 32.
+LaTeX Info: Redefining \S on input line 34.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 34.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 32.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 34.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/msa/m/n on input line 32.
-Package hyperref Info: Link coloring ON on input line 32.
+(Font)                  U/msa/m/n --> U/msa/m/n on input line 34.
+Package hyperref Info: Link coloring ON on input line 34.
  (sn-article.out) (sn-article.out)
 \@outlinefile=\write3
 \openout3 = `sn-article.out'.
 
-\c@lstlisting=\count359
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 50.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+\c@lstlisting=\count360
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 50.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 52.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 50.
+(Font)              size <8> substituted on input line 52.
 
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 50.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 52.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 50.
+(Font)              size <6> substituted on input line 52.
 
-LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 50.
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 52.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -738,13 +753,27 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 {C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2] (sn-article.bbl
+ [2]
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 99.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
+(Font)              size <5> substituted on input line 99.
+
+
+Overfull \hbox (11.08844pt too wide) in paragraph at lines 95--107
+ [] 
+ []
+
+(sn-article.bbl)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4] (sn-article.aux)
+ [3
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.122 \end{document}
+                    ] (sn-article.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -752,23 +781,23 @@ L3 programming layer <2026-01-19>
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.47939pt have occurred.
+(Font)              up to 0.985pt have occurred.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: CD5179DA0EFDE0E87FAA3E0843FEBF2C;1364.
+(rerunfilecheck)             Checksum: 7F8661FB56F2B90E7803A784C1A5BEFF;1392.
  ) 
 Here is how much of TeX's memory you used:
- 14477 strings out of 467866
- 223918 string characters out of 5418326
- 644358 words of memory out of 5000000
- 43103 multiletter control sequences out of 15000+600000
- 645623 words of font info for 110 fonts, out of 8000000 for 9000
+ 14750 strings out of 467866
+ 227862 string characters out of 5418326
+ 647730 words of memory out of 5000000
+ 43370 multiletter control sequences out of 15000+600000
+ 650207 words of font info for 128 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,8n,93p,1608b,627s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on sn-article.pdf (4 pages, 175566 bytes).
+ 90i,17n,93p,1578b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+Output written on sn-article.pdf (3 pages, 181605 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
+ 142 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

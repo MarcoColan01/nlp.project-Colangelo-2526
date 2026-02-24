@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -84,6 +84,23 @@ Knowledge Distillation in Wide Neural Networks: Risk Bound, Data Efficiency and
   Imperfect Teacher
 (2020).
 \url{https://arxiv.org/abs/2010.10090}
+\end{botherref}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Devlin
+  et~al.}{2018}]{DBLP:journals/corr/abs-1810-04805}
+\begin{botherref}
+\oauthor{\bsnm{Devlin}, \binits{J.}},
+\oauthor{\bsnm{Chang}, \binits{M.}},
+\oauthor{\bsnm{Lee}, \binits{K.}},
+\oauthor{\bsnm{Toutanova}, \binits{K.}}:
+{BERT:} pre-training of deep bidirectional transformers for language
+  understanding.
+CoRR
+\textbf{abs/1810.04805}
+(2018)
+{\href{https://arxiv.org/abs/1810.04805}{{arXiv:1810.04805}}}
 \end{botherref}
 \endbibitem
 
