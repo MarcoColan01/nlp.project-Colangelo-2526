@@ -22,50 +22,53 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: sn-bibliography.bib
+Warning--entry type for "misra2019imdb" isn't style-file defined
+--line 61 of file sn-bibliography.bib
 sn-mathphys-num.bst [2024/07/19 v1.1  bibliography style]
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 4 entries,
+You've used 6 entries,
             7485 wiz_defined-function locations,
-            1213 strings with 10581 characters,
-and the built_in function-call counts, 13809 in all, are:
-= -- 1776
-> -- 102
-< -- 8
-+ -- 317
-- -- 39
-* -- 996
-:= -- 2799
-add.period$ -- 4
-call.type$ -- 4
-change.case$ -- 20
-chr.to.int$ -- 4
-cite$ -- 4
-duplicate$ -- 126
-empty$ -- 933
-format.name$ -- 125
-if$ -- 3016
+            1223 strings with 10837 characters,
+and the built_in function-call counts, 35604 in all, are:
+= -- 5898
+> -- 137
+< -- 12
++ -- 2860
+- -- 55
+* -- 1484
+:= -- 6590
+add.period$ -- 6
+call.type$ -- 6
+change.case$ -- 31
+chr.to.int$ -- 9
+cite$ -- 6
+duplicate$ -- 168
+empty$ -- 1203
+format.name$ -- 163
+if$ -- 8625
 int.to.chr$ -- 1
-int.to.str$ -- 8
+int.to.str$ -- 10
 missing$ -- 0
-newline$ -- 101
-num.names$ -- 20
-pop$ -- 116
+newline$ -- 123
+num.names$ -- 30
+pop$ -- 152
 preamble$ -- 1
-purify$ -- 19
+purify$ -- 27
 quote$ -- 0
-skip$ -- 843
+skip$ -- 3348
 stack$ -- 0
-substring$ -- 2008
-swap$ -- 39
-text.length$ -- 39
+substring$ -- 4077
+swap$ -- 51
+text.length$ -- 58
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 111
+type$ -- 167
 warning$ -- 0
-while$ -- 106
+while$ -- 148
 width$ -- 0
-write$ -- 123
+write$ -- 157
+(There was 1 warning)

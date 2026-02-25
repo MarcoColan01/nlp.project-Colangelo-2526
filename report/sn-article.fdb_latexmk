@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sn-article"] 1771856953.03798 "sn-article.aux" "sn-article.bbl" "sn-article" 1771857449.47816 0
+["bibtex sn-article"] 1771944763.17606 "sn-article.aux" "sn-article.bbl" "sn-article" 1771944793.79692 0
   "./sn-bibliography.bib" 1771854953 2325 4f11afd6b24936c9ca6b01e1aa045b49 ""
   "./sn-mathphys-num.bst" 1769760560 67375 943df446db725f71d6bb625fc0d6f4fc ""
-  "sn-article.aux" 1771857449 2423 268f25105c0348ff7f21229382801597 "pdflatex"
+  "sn-article.aux" 1771944793 2769 a6e090715372444c6a9dc00de3c10b3a "pdflatex"
   (generated)
   "sn-article.bbl"
   "sn-article.blg"
   (rewritten before read)
-["pdflatex"] 1771857448.59136 "c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1771857449.4785 0
+["pdflatex"] 1771944792.74134 "c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1771944793.79732 0
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1771856809 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1770475568 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1770475568 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -141,12 +141,12 @@
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex" 1771857448 9887 52e97a0f6df421952101debe15ecbd91 ""
+  "c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex" 1771944792 8565 0cad90c009697de930387c687e17a720 ""
   "cuted.sty" 1769760560 25941 37777e600592aa9206b474fe03f66b4b ""
-  "sn-article.aux" 1771857449 2423 268f25105c0348ff7f21229382801597 "pdflatex"
-  "sn-article.bbl" 1771856953 4025 5687d1f14465eae63e8c796be4538d84 "bibtex sn-article"
-  "sn-article.out" 1771857449 1392 7f8661fb56f2b90e7803a784c1a5beff "pdflatex"
-  "sn-article.tex" 1771857448 9887 52e97a0f6df421952101debe15ecbd91 ""
+  "sn-article.aux" 1771944793 2769 a6e090715372444c6a9dc00de3c10b3a "pdflatex"
+  "sn-article.bbl" 1771944763 4640 d95f3aadb997b0ec88c786d06fb8adf2 "bibtex sn-article"
+  "sn-article.out" 1771944793 1392 7f8661fb56f2b90e7803a784c1a5beff "pdflatex"
+  "sn-article.tex" 1771944792 8565 0cad90c009697de930387c687e17a720 ""
   "sn-jnl.cls" 1769760560 55857 c14ef9d34b3d95356940eaf177aff85f ""
   (generated)
   "sn-article.aux"

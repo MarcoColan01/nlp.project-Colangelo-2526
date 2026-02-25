@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  23 FEB 2026 15:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  24 FEB 2026 15:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -754,26 +754,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 99.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 89.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 99.
+(Font)              size <5> substituted on input line 89.
 
 
-Overfull \hbox (11.08844pt too wide) in paragraph at lines 95--107
+Overfull \hbox (11.08844pt too wide) in paragraph at lines 85--97
  [] 
  []
 
-(sn-article.bbl)
+(sn-article.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.122 \end{document}
-                    ] (sn-article.aux)
+l.63 
+     ])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4] (sn-article.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -787,17 +790,17 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: 7F8661FB56F2B90E7803A784C1A5BEFF;1392.
  ) 
 Here is how much of TeX's memory you used:
- 14750 strings out of 467866
- 227862 string characters out of 5418326
- 647730 words of memory out of 5000000
- 43370 multiletter control sequences out of 15000+600000
+ 14757 strings out of 467866
+ 228068 string characters out of 5418326
+ 649783 words of memory out of 5000000
+ 43374 multiletter control sequences out of 15000+600000
  650207 words of font info for 128 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,17n,93p,1578b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,17n,93p,1578b,623s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on sn-article.pdf (3 pages, 181605 bytes).
+Output written on sn-article.pdf (4 pages, 188307 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

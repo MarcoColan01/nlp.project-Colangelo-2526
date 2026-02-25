@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{4}
+\begin{thebibliography}{6}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -88,6 +88,29 @@ Knowledge Distillation in Wide Neural Networks: Risk Bound, Data Efficiency and
 \endbibitem
 
 %%% 4
+\bibitem[\protect\citeauthoryear{Misra}{2019}]{misra2019imdb}
+\begin{botherref}
+\oauthor{\bsnm{Misra}, \binits{R.}}:
+IMDB Spoiler Dataset.
+\doiurl{10.13140/RG.2.2.11584.15362}
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Sun
+  et~al.}{2020}]{sun2020finetuneberttextclassification}
+\begin{botherref}
+\oauthor{\bsnm{Sun}, \binits{C.}},
+\oauthor{\bsnm{Qiu}, \binits{X.}},
+\oauthor{\bsnm{Xu}, \binits{Y.}},
+\oauthor{\bsnm{Huang}, \binits{X.}}:
+How to Fine-Tune BERT for Text Classification?
+(2020).
+\url{https://arxiv.org/abs/1905.05583}
+\end{botherref}
+\endbibitem
+
+%%% 6
 \bibitem[\protect\citeauthoryear{Devlin
   et~al.}{2018}]{DBLP:journals/corr/abs-1810-04805}
 \begin{botherref}

@@ -118,6 +118,85 @@ def _masked_attn_mse(student_a, teacher_a, attention_mask, clamp_val=30.0):
     denom = (pair_mask.sum().to(diff2.dtype) * s.size(1)).clamp_min(1.0)
     return diff2.sum() / denom
 
+class Phase2DistillationTrainer(Trainer):
+    def __init__(
+            self, 
+            teacher_model,
+            *args,
+            temperature=1.0,
+            rho_ok=0.9,
+            rho_bad=0.2,
+            class_weights=None,
+            debug_finite_check=True,
+            **kwargs
+    ):
+        super().__init__(*args, **kwargs)
+        self.teacher = teacher_model
+        self.teacher.eval() 
+        for p in self.teacher.parameters():
+            p.requires_grad = False
+        
+        self.T = temperature
+        self.rho_ok = rho_ok
+        self.rho_bad = rho_bad
+        self.class_weights = class_weights  #Tensor [w0, w1] for WCE
+        self.debug_finite_check = debug_finite_check
+        self._last_td2_logs = {} 
+    
+    def compute_loss(self, model, inputs, return_outputs = False, num_items_in_batch = None):
+        labels = inputs["labels"].long() 
+        student_inputs = {k: v for k, v in inputs.items() if k != "labels"}
+
+        #Teacher forward (frozen)
+        with torch.no_grad():
+            teacher_outputs = self.teacher(**student_inputs, return_dict=True)
+            z_T = teacher_outputs.logits  # [B, 2]
+        
+        #Student forward
+        student_outputs = model(**student_inputs, return_dict=True)
+        z_S = student_outputs.logits  # [B, 2]
+
+        teacher_preds = z_T.argmax(dim=-1)  # [B]
+        correct_mask = (teacher_preds == labels)  # [B] bool 
+        rho = torch.where(correct_mask,
+                          torch.full_like(labels, self.rho_ok, dtype=torch.float), 
+                          torch.full_like(labels, self.rho_bad, dtype=torch.float))  
+        
+        # Soft loss (distillation from teacher) 
+        soft_student = F.log_softmax(z_S / self.T, dim=-1)  # [B,2]
+        soft_teacher = F.softmax(z_T / self.T, dim=-1)  # [B,2]
+        kl_per_sample = F.kl_div(soft_student, soft_teacher, reduction='none').sum(dim=-1)  # [B]
+        soft_loss_per_sample = kl_per_sample * (self.T **2) # [B]
+        soft_loss = (rho * soft_loss_per_sample).mean()
+
+        #Hard loss (WCE con y_true)
+        if self.class_weights is not None:
+            w = self.class_weights.to(z_S.device)
+            hard_loss_fct = nn.CrossEntropyLoss(weight=w, reduction='none')
+        else:
+            hard_loss_fct = nn.CrossEntropyLoss(reduction='none')
+        hard_loss_per_sample = hard_loss_fct(z_S, labels)  # [B]
+        hard_loss = ((1-rho) * hard_loss_per_sample).mean()
+
+        total_loss = soft_loss + hard_loss
+
+        self._last_td2_logs = {
+            "td2_loss_soft": float(soft_loss.detach().cpu()),
+            "td2_loss_hard": float(hard_loss.detach().cpu()),
+            "tds_rho_mean": float(rho.mean().detach().cpu()),
+            "td2_loss_total": float(total_loss.detach().cpu()),
+        }
+
+        if self.debug_finite_check and (not torch.isfinite(total_loss)):
+            raise FloatingPointError(f"Non-finite TD2 loss. "
+                                     f"soft={soft_loss.item():.6f}, hard={hard_loss.item():.6f}")
+
+        return (total_loss, student_outputs) if return_outputs else total_loss
+    
+    def log(self, logs, *args, **kwargs):
+        if isinstance(logs, dict) and self._last_td2_logs:
+            logs = {**logs, **self._last_td2_logs}
+        return super().log(logs, *args, **kwargs)
 
 class Phase1DistillationTrainer(Trainer):
     def __init__(
