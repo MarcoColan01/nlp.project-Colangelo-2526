@@ -17,6 +17,8 @@
 \usepackage{verbatim}
 \usepackage{booktabs}
 \usepackage{makecell}
+\usepackage{graphicx}
+
 
 \theoremstyle{thmstyleone}%
 \newtheorem{theorem}{Theorem}%  
@@ -53,7 +55,7 @@
 \section{Introduction}
 Very often, before even seeing a film, we decide to read some reviews because we're curious to know the opinions of those who have already seen it. In such a situation, it's not uncommon to encounter reviews that, whether intended to spoil something or not, include various types of spoilers (e.g., "The movie is great, but at the end, character X dies/does this or that"). Clearly, we want to avoid this, but platforms like IMDb don't warn us in advance about such reviews.
 
-IMDb is by far the most popular global source for movies and TV shows, and it also includes user-submitted reviews. But, as mentioned above, there's no spoiler alert for reviews. What if there were a browser extension (running locally on users' PCs) that retrieves the text of a review and tells us "Spoiler Alert!" before we can even start reading it?
+IMDb is by far the most popular global source for movies and TV shows, and it also includes user-submitted reviews with spoiler warnings for each one. The problem is that this approach isn't automated: users label reviews as spoilers themselves, but they aren't required to do so. The result is that spoiler reviews can exist without warnings as such (users can flag a review as a spoiler, and the IMDB moderation team will label it as such, but this process is obviously not immediate). What if there were a browser extension (running locally on users' PCs) that retrieves the text of a review and tells us "Spoiler alert!" before we can even begin reading it?
 
 With the recent evolution of LLMs, this task can be accomplished by fine-tuning a sufficiently large pre-trained model, such as BERT.
 
@@ -65,6 +67,7 @@ So far, three main studies have defined the paradigm of model compression via kn
 
 \subsection{Aim of the work}
 This work aims to implement Task Specific Distillation \cite{jiao2020tinybertdistillingbertnatural} to obtain a small BERT-based model specialized for spoiler detection. The novelty of this work is the use of the imperfect teacher concept \cite{ji2020knowledgedistillationwideneural} to implement the prediction layer loss.
+
 
 
 
@@ -82,6 +85,7 @@ Each row, saved in a .parquet file for efficiency, contains the list of 512 toke
 \subsubsection{Structure of the models}
 The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with General Knowledge Distillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
 
+
 \begin{table}[h]
 \centering
 \caption{Parameters of the teacher and student models.} 
@@ -97,7 +101,9 @@ TinyBERT\_General\_4L\_312D & 4 & 12 & 312 & 312 & 14.5M \\
 \end{table}
 
 \subsubsection{BERT Fine-tuning}
-
+\begin{center}
+  \includegraphics[width=1.2\textwidth]{metrics_barchart.png}   %Image centered
+\end{center}
 
 \subsubsection{Task Specific Distillation}
 
