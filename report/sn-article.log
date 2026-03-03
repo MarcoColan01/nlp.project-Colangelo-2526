@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  26 FEB 2026 12:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  3 MAR 2026 11:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -754,24 +754,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 93.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 91.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.015> not available
-(Font)              size <5> substituted on input line 93.
+(Font)              size <5> substituted on input line 91.
 
 
-Overfull \hbox (11.08844pt too wide) in paragraph at lines 89--101
- [] 
- []
-
-<metrics_barchart.png, id=82, 758.835pt x 433.62pt>
-File: metrics_barchart.png Graphic file (type png)
-<use metrics_barchart.png>
-Package pdftex.def Info: metrics_barchart.png  used on input line 105.
-(pdftex.def)             Requested size: 446.39886pt x 255.08592pt.
-
-Overfull \hbox (74.39886pt too wide) in paragraph at lines 105--106
+Overfull \hbox (11.08844pt too wide) in paragraph at lines 87--99
  [] 
  []
 
@@ -782,14 +772,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.106 \end{center}
-                  ] (sn-article.bbl
+l.103 
+      ] (sn-article.bbl)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./metrics_barchart.png>])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5] (sn-article.aux)
+ [4] (sn-article.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -800,20 +787,20 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.985pt have occurred.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: 7F8661FB56F2B90E7803A784C1A5BEFF;1392.
+(rerunfilecheck)             Checksum: 9A1940BF6EAD2A4FB6EFD283F8150C49;1482.
  ) 
 Here is how much of TeX's memory you used:
- 14765 strings out of 467866
- 228262 string characters out of 5418326
- 648783 words of memory out of 5000000
- 43381 multiletter control sequences out of 15000+600000
- 650207 words of font info for 128 fonts, out of 8000000 for 9000
+ 14766 strings out of 467866
+ 228242 string characters out of 5418326
+ 649786 words of memory out of 5000000
+ 43382 multiletter control sequences out of 15000+600000
+ 650542 words of font info for 129 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,17n,93p,1578b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on sn-article.pdf (5 pages, 1414547 bytes).
+ 90i,17n,93p,1512b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\tcrm1000.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+Output written on sn-article.pdf (4 pages, 192926 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

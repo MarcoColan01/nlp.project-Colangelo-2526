@@ -282,13 +282,7 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
-INPUT .\metrics_barchart.png
-INPUT .\metrics_barchart.png
-INPUT .\metrics_barchart.png
-INPUT .\metrics_barchart.png
-INPUT .\metrics_barchart.png
-INPUT .\metrics_barchart.png
-INPUT .\metrics_barchart.png
+INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
 INPUT .\sn-article.bbl
 INPUT .\sn-article.bbl
 INPUT sn-article.bbl
@@ -296,6 +290,8 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tf
 INPUT sn-article.aux
 INPUT .\sn-article.out
 INPUT .\sn-article.out
+INPUT C:\Users\cola0\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\tcrm1000.pk
+INPUT C:\Users\cola0\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\tcrm1000.pk
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
