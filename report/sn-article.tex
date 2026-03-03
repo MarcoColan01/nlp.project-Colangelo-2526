@@ -54,32 +54,88 @@
 
 %The introduction provides an overview of the project and a short discussion on the pertinent literature
 \section{Introduction}
-Very often, before even seeing a film, we decide to read some reviews because we're curious to know the opinions of those who have already seen it. In such a situation, it's not uncommon to encounter reviews that, whether intended to spoil something or not, include spoilers (e.g., "The movie is great, but character X dies/does this or that"). Clearly, we want to avoid this: luckily, platforms like IMDb warn us in advance about such reviews.
+Very often, before even seeing a film or a TV series, we decide to read some reviews because we're curious to know the opinions of those who have already seen it. In such a situation, it's not uncommon to encounter reviews that, whether intended to spoil something or not, include spoilers (e.g., "The movie is great, but character X dies/does this or that"). Clearly, we want to avoid this: luckily, platforms like IMDb warn us in advance about such reviews.
 
-IMDb is by far the most popular global source for movies and TV shows, and it also includes user-submitted reviews with spoiler warnings for each one. The problem is that users label reviews as spoilers themselves, but they can lie and insert spoilers on a no spoiler marked review. Other users can report a review as spoiler, and the IMDb moderation team will label it as such, but of course it's not immediate. What if there were a browser extension (running locally on users' PCs) that retrieves the text of a review and tells us "Spoiler alert!" before we can even begin reading it? With the recent evolution of LLMs, this task can be accomplished by fine-tuning a sufficiently large pre-trained model, such as BERT.
+IMDb is by far the most popular global source for movies and TV shows, and it also includes user-submitted reviews with spoiler warnings for each one. The problem is that users label reviews as spoilers themselves, but they can lie and insert spoilers on a no spoiler marked review. Other users can report a review as spoiler, and the IMDb moderation team will label it as such, but of course it's not an immediate action. What if there were a browser extension (running locally on users' PCs) that retrieves the text of a review and tells us "Spoiler alert!" before we can even begin reading it? With the recent evolution of LLMs, this task can be accomplished by fine-tuning a sufficiently large pre-trained model, such as BERT.
 
+Language model pre-training, such as BERT, has significantly improved the perfomances of many NLP tasks. However, pre-trained language models are usually computationally expensive, so it is difficult to efficiently execute them on resource-restricted devices (such as the user's PC). A novel Transformer distillation method, specially designed for knowledge distillation of the Transformer-based models, allows to effectively transfer to a smaller student model called TinyBERT the plenty of knowledge from a large pre-trained BERT model. \cite{jiao2020tinybertdistillingbertnatural}
 \subsection{Related Work}
-
+So far, three main studies have defined the paradigm of model compression via knowledge transfer. The first, by Hinton et al. \cite{hinton2015distillingknowledgeneuralnetwork}, introduced the seminal concept of Knowledge Distillation (KD), focusing on transferring the dark knowledge from a large Teacher to a compact Student. Their approach minimizes the distance between the output probability distributions of the two networks, softened by a temperature $ T $. The second and more specialized study, by Jiao et al. \cite{jiao2020tinybertdistillingbertnatural}, proposes a variant named TinyBERT, specifically designed for Transformer-based architectures. While Hinton’s method operates on the final output layer, Jiao et al. argue that for complex language models, this is insufficient. Their method leverages a layer-to-layer distillation strategy, forcing the student to mimic not only the teacher's prediction but also its intermediate representations. The third, by Ji \& Zhu \cite{ji2020knowledgedistillationwideneural}, attempts to provide a mathematical justification for why knowledge distillation works, demonstrating that the use of hard labels (ground truth) are necessary during distillation to counteract the so-called "imperfect teacher" (i.e., a teacher who makes incorrect predictions). This way, the student can understand how much he can trust the teacher's predictions.
 %The Research question and methodology provides a clear statement on the goals of the project, an overview of the proposed approach, and a formal definition of the problem
 \section{Research question and methodology}
-\begin{comment}
-To what extent can a highly compressed language model (TinyBERT) maintain not only the predictive performance of a larger teacher model (BERT-base) but also its internal reasoning and contextualization capabilities in a highly ambiguous task like spoiler detection?
-\end{comment}
-\subsection{Proposed approach}
+Spoiler detection with LLMs is not a trivial task due to the subtle, context-dependent nature of what constitutes a spoiler, as well as the length of the reviews which can exceeding BERT’s 512-token limit. 
 
+Research question: \textit{To what extent can a highly compressed language model (TinyBERT) maintain not only the predictive performance of a larger teacher model (BERT-base) but also its internal reasoning and contextualization capabilities in a highly ambiguous task like spoiler detection?}
+
+\subsection{Proposed approach}
+The proposed approach is based on the following pipeline.
+\begin{itemize}
+\item Data Preprocessing: a truncation strategy was applied that considers only the first 128 and last 382 tokens of a review's text. This is because spoilers are often found at the end of a review, but the initial part is important because it introduces context. \cite{sun2020finetuneberttextclassification}
+\item Teacher Fine-Tuning: Layer-wise Learning Rate Decay was used to avoid catastrophic forgetting and overfitting. Also, weighted cross-entropy loss was used due to the dataset's imbalance.
+\item Task-Specific Distillation: this phase is divided into two subphases. In the first, intermediate-layer distillation is performed, while in the second, prediction-layer distillation is performed.
+\item Evaluation and computational saving metrics:
+\item Embeddings and Attention Matrices exploration:  
+\end{itemize}
 
 %The Experimental Results provides an overview of the dataset used for experiments, the metrics used for evaluating performances, and the experimental methodology. Presents experimental results as plots and/or tables.
 \section{Experimental Results} 
 \subsection{Data and Preprocessing}
+The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on Kaggle. This dataset (in JSON format) contains over 500,000 IMDb movie reviews, each with a boolean label that marks it as a spoiler or not. I choose to extract a random sample of 300,000 total reviews, then divided it into training (80\%), validation and test sets (10\% each). 
+
+To overcome the 512 maximum token limit with BERT, a solution based on the head+tail of the review text was used \cite{sun2020finetuneberttextclassification}: the text is first tokenized using the BERT vocabulary, also adding the special tokens [CLS] at the start and [SEP] at the end. If the resulting token list is longer than 512, only the first 128 tokens after [CLS] and the last 382 before [SEP] are retained.
+
+Each row, saved in a .parquet file for efficiency, contains the list of 512 tokens, an attention\_mask of length 512 to highlight to the model that all tokens are important, and the label 0/1.
+\subsection{Teacher and Student Models Architectures}
+The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with General Knowledge Distillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
+
+\begin{table}[h]
+\centering
+\caption{Parameters of the teacher and student models.} 
+\label{tab:models_parameters} 
+\begin{tabular}{l|cccc|c}
+\toprule
+\textbf{Model} & \textbf{Layers} & \textbf{\makecell{Attention \\ Heads}} & \textbf{Embeddings} & \textbf{\makecell{Hidden \\ States}} & \textbf{\makecell{Total \\ Parameters}} \\
+\midrule
+BERT-base-uncased  & 12 & 12 & 768 & 768 & 110M \\
+TinyBERT\_General\_4L\_312D & 4 & 12 & 312 & 312 & 14.5M \\
+\bottomrule
+\end{tabular}
+\end{table}
+Both the fine-tuning of the BERT teacher model and the task-specific distillation of the student were performed on a desktop PC equipped with an RTX 3070 (8GB of VRAM) and 32GB of RAM. (purchased before RAM crysis LOL)
 \subsection{BERT Fine Tuning for Spoiler Detection}
+Since the dataset contains an imbalance in labels (73\% No spoiler and 26\% Spoiler), a weighted cross entropy loss (WCE) was used during BERT fine-tuning, giving more importance to the Spoiler class. The weight has been calculated on the train set as the ratio between the number of negative samples and the number of positive samples. 
+
+The hyperparameters used for Teacher Fine Tuning are the following:
+\begin{itemize}
+\item Epochs: 3
+\item Batch size: 24 (physical dimension = 8 and gradient accumulation = 3)
+\item Warmup ratio: 0.03
+\item Optimizer: AdamW with weight decay of 0.01 and a custom learning rate implemented as Layer-wise Learning Rate Decay (base LR = $2e-5$, decay factor = $0.95$) to give a lower LR to the lower layers of the network. This, for BERT Fine Tuning, can overcome the catastrophic forgetting problem. \cite{sun2020finetuneberttextclassification}
+\item Metric for best model: PR-AUC. This choice is justified by the imbalance of the dataset and the chosen task (binary text classification).
+\end{itemize}
+
+Figure DA INSERIRE  shows the metrics obtained with the fine-tuned teacher compared to the teacher without fine-tuning.
+
 \subsubsection{Results of BERT Fine Tuning}
 \subsection{Task-Specific Distillation}
+The task-specific distillation phase is in turn divided into two distinct sub-phases.
 \subsubsection{Phase 1: Intermediate Layers Distillation}
+During this subphase, only attention based and hidden states based distillation is performed. This because attention weights learned by BERT can capture rich linguistic knowledge and is essential for natural language understanding, so it should be transferred to the student.
+
+More formally, given an input $x$, the loss for this phase is calculated as
+\begin{equation}
+  L_{TD1}(x) = \lambda_0 L_{embd}(x) + \sum_{m=1}^M \lambda_m (L^{(m)}_{hidn}(x) + L^{(m)}_{attn}(x))
+\end{equation}
+where
+\begin{itemize}
+  \item $L_{attn} = \frac{1}{h} \sum_{i=1}^h MSE(A_i^S, A_i^T)$ is the attention-based distillation. $h$ is the number of attention heads, $A_i \in \mathbb{R}^{l \times l}$ is the unnormalized attention matrix of the i-th head of teacher or student and $l$ is the input text length (512 in this case).
+  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d = 312$) and teacher (with size $d = 768$) respectively
+\end{itemize}
 \subsubsection{Phase 2: Prediction Layer Prediction}
-\section{Results of distillation}
-\subsection{Performance Drop}
-\subsection{Computational Savings}
-\subsection{Interpretability}
+\subsection{Results of distillation}
+\subsubsection{Performance Drop}
+\subsubsection{Computational Savings}
+\subsubsection{Interpretability}
 
 
 %Provides a critical discussion on the experimental results and some ideas for future work
