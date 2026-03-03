@@ -4,6 +4,7 @@ The top-level auxiliary file: sn-article.aux
 Reallocating 'name_of_file' (item size: 1) to 16 items.
 The style file: sn-mathphys-num.bst
 Reallocating 'name_of_file' (item size: 1) to 16 items.
+I found no \citation commands---while reading file sn-article.aux
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 4000000 items.
@@ -22,53 +23,51 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: sn-bibliography.bib
-Warning--entry type for "misra2019imdb" isn't style-file defined
---line 61 of file sn-bibliography.bib
 sn-mathphys-num.bst [2024/07/19 v1.1  bibliography style]
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 6 entries,
+You've used 0 entries,
             7485 wiz_defined-function locations,
-            1223 strings with 10837 characters,
-and the built_in function-call counts, 35604 in all, are:
-= -- 5898
-> -- 137
-< -- 12
-+ -- 2860
-- -- 55
-* -- 1484
-:= -- 6590
-add.period$ -- 6
-call.type$ -- 6
-change.case$ -- 31
-chr.to.int$ -- 9
-cite$ -- 6
-duplicate$ -- 168
-empty$ -- 1203
-format.name$ -- 163
-if$ -- 8625
+            1183 strings with 9641 characters,
+and the built_in function-call counts, 114 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 3
+:= -- 14
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
 int.to.chr$ -- 1
-int.to.str$ -- 10
+int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 123
-num.names$ -- 30
-pop$ -- 152
+newline$ -- 46
+num.names$ -- 0
+pop$ -- 0
 preamble$ -- 1
-purify$ -- 27
+purify$ -- 0
 quote$ -- 0
-skip$ -- 3348
+skip$ -- 1
 stack$ -- 0
-substring$ -- 4077
-swap$ -- 51
-text.length$ -- 58
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 167
+type$ -- 0
 warning$ -- 0
-while$ -- 148
+while$ -- 0
 width$ -- 0
-write$ -- 157
-(There was 1 warning)
+write$ -- 44
+(There was 1 error message)
