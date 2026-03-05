@@ -120,7 +120,7 @@ Figure DA INSERIRE  shows the metrics obtained with the fine-tuned teacher compa
 \subsection{Task-Specific Distillation}
 The task-specific distillation phase is in turn divided into two distinct sub-phases.
 \subsubsection{Phase 1: Intermediate Layers Distillation}
-During this subphase, only attention based and hidden states based distillation is performed. This because attention weights learned by BERT can capture rich linguistic knowledge and is essential for natural language understanding, so it should be transferred to the student.
+During this subphase, only attention based and hidden states based distillation is performed, while prediction layer have been frozen on both models. This because attention weights learned by BERT can capture rich linguistic knowledge and is essential for natural language understanding, so it should be transferred to the student.
 
 More formally, given an input $x$, the loss for this phase is calculated as
 \begin{equation}
@@ -129,9 +129,32 @@ More formally, given an input $x$, the loss for this phase is calculated as
 where
 \begin{itemize}
   \item $L_{attn} = \frac{1}{h} \sum_{i=1}^h MSE(A_i^S, A_i^T)$ is the attention-based distillation. $h$ is the number of attention heads, $A_i \in \mathbb{R}^{l \times l}$ is the unnormalized attention matrix of the i-th head of teacher or student and $l$ is the input text length (512 in this case).
-  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d = 312$) and teacher (with size $d = 768$) respectively
+  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d = 312$) and teacher (with size $d = 768$) respectively, while $W_h \in \mathbb{R}^{312 \times 768}$ is a learnable linear transformation of the hidden states of student into the same space as the teacher's states.  
+  \item $L_{embd} = MSE(E^SW_e, E^T)$ is the embedding-based distillation. $E^S$ and $E^T$ refers to the student's and teacher's embeddings respectively, while $W_e$ has the same role as $W_h$.
 \end{itemize}
-\subsubsection{Phase 2: Prediction Layer Prediction}
+The hyperparameters used for this subphase were the following:
+\begin{itemize}
+  \item Epochs: 8
+  \item Batch size: 32 (physical dim = 8 and gradient accumulation = 4)
+  \item Learning rate: $5e-5$
+\end{itemize}
+\subsubsection{Phase 2: Prediction Layer Distillation}
+During this phase, only prediction layer distillation is performed in order to also fit the predictions of teacher model. A variant of prediction loss has been proposed here. Jiao et al. rely on the following loss defined by Hinton et al., which penalizes the soft cross-entropy loss between the student network's logits against the teacher's logits:
+\begin{equation}
+L_{pred} = CE (z^T/t, z^S/t)
+\end{equation}
+However, by introducing the concept of imperfect teachers, it is possible to rewrite the loss by also introducing hard labels (ground truth) and weights for both soft and hard labels, so that the student learns from the teacher when the teacher produces correct predictions and learns to trust the teacher less when the teacher produces incorrect predictions.
+
+The prediction layer loss implemented in this work has been the following:
+\begin{equation}
+  L_{TD-2} = \rho(x) \cdot \underbrace{CE(z_T/T, z_S/T)}_{\text{Soft Loss}} \cdot T^2 + (1 - \rho(x)) \cdot \underbrace{WCE(z_S, y_{true})}_{\text{Weighted Hard Loss}}
+\end{equation}
+The hyperparameters used for this subphase were the following:
+\begin{itemize}
+  \item Epochs: 3
+  \item Batch size: 32 (physical dim = 16 and gradient accumulation = 2)
+  \item Learnign rate: $2e-5$
+\end{itemize}
 \subsection{Results of distillation}
 \subsubsection{Performance Drop}
 \subsubsection{Computational Savings}
