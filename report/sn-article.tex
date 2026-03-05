@@ -60,7 +60,13 @@ IMDb is by far the most popular global source for movies and TV shows, and it al
 
 Language model pre-training, such as BERT, has significantly improved the perfomances of many NLP tasks. However, pre-trained language models are usually computationally expensive, so it is difficult to efficiently execute them on resource-restricted devices (such as the user's PC). A novel Transformer distillation method, specially designed for knowledge distillation of the Transformer-based models, allows to effectively transfer to a smaller student model called TinyBERT the plenty of knowledge from a large pre-trained BERT model. \cite{jiao2020tinybertdistillingbertnatural}
 \subsection{Related Work}
-So far, three main studies have defined the paradigm of model compression via knowledge transfer. The first, by Hinton et al. \cite{hinton2015distillingknowledgeneuralnetwork}, introduced the seminal concept of Knowledge Distillation (KD), focusing on transferring the dark knowledge from a large Teacher to a compact Student. Their approach minimizes the distance between the output probability distributions of the two networks, softened by a temperature $ T $. The second and more specialized study, by Jiao et al. \cite{jiao2020tinybertdistillingbertnatural}, proposes a variant named TinyBERT, specifically designed for Transformer-based architectures. While Hinton’s method operates on the final output layer, Jiao et al. argue that for complex language models, this is insufficient. Their method leverages a layer-to-layer distillation strategy, forcing the student to mimic not only the teacher's prediction but also its intermediate representations. The third, by Ji \& Zhu \cite{ji2020knowledgedistillationwideneural}, attempts to provide a mathematical justification for why knowledge distillation works, demonstrating that the use of hard labels (ground truth) are necessary during distillation to counteract the so-called "imperfect teacher" (i.e., a teacher who makes incorrect predictions). This way, the student can understand how much he can trust the teacher's predictions.
+So far, three main studies have defined the paradigm of model compression via knowledge transfer. 
+\begin{itemize}
+  \item The first, by Hinton et al. \cite{hinton2015distillingknowledgeneuralnetwork}, introduced the seminal concept of Knowledge Distillation (KD), focusing on transferring the dark knowledge from a large Teacher to a compact Student. Their approach minimizes the distance between the output probability distributions of the two networks, softened by a temperature $ T $. 
+  \item The second and more specialized study, by Jiao et al. \cite{jiao2020tinybertdistillingbertnatural}, proposes a variant named TinyBERT, specifically designed for Transformer-based architectures. While Hinton’s method operates on the final output layer, Jiao et al. argue that for complex language models, this is insufficient. Their method leverages a layer-to-layer distillation strategy, forcing the student to mimic not only the teacher's prediction but also its intermediate representations. 
+  \item The third, by Ji \& Zhu \cite{ji2020knowledgedistillationwideneural}, attempts to provide a mathematical justification for why knowledge distillation works, demonstrating that the use of hard labels (ground truth) are necessary during distillation to counteract the so-called "imperfect teacher" (i.e., a teacher who makes incorrect predictions). This way, the student can understand how much he can trust the teacher's predictions.
+\end{itemize}
+
 %The Research question and methodology provides a clear statement on the goals of the project, an overview of the proposed approach, and a formal definition of the problem
 \section{Research question and methodology}
 Spoiler detection with LLMs is not a trivial task due to the subtle, context-dependent nature of what constitutes a spoiler, as well as the length of the reviews which can exceeding BERT’s 512-token limit. 
@@ -84,7 +90,7 @@ The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on
 
 To overcome the 512 maximum token limit with BERT, a solution based on the head+tail of the review text was used \cite{sun2020finetuneberttextclassification}: the text is first tokenized using the BERT vocabulary, also adding the special tokens [CLS] at the start and [SEP] at the end. If the resulting token list is longer than 512, only the first 128 tokens after [CLS] and the last 382 before [SEP] are retained.
 
-Each row, saved in a .parquet file for efficiency, contains the list of 512 tokens, an attention\_mask of length 512 to highlight to the model that all tokens are important, and the label 0/1.
+Each row, saved in a .parquet file for efficiency, contains \textit{input\_ids}, \textit{attention\_mask} and \textit{token\_type\_ids}. If the review exceeds the limit, head+tail truncation is applied to build a 512-token sequence; otherwise the sequence keeps its natural length and is padded dynamically at batch time.
 \subsection{Teacher and Student Models Architectures}
 The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with General Knowledge Distillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
 
@@ -120,7 +126,7 @@ Figure DA INSERIRE  shows the metrics obtained with the fine-tuned teacher compa
 \subsection{Task-Specific Distillation}
 The task-specific distillation phase is in turn divided into two distinct sub-phases.
 \subsubsection{Phase 1: Intermediate Layers Distillation}
-During this subphase, only attention based and hidden states based distillation is performed, while prediction layer have been frozen on both models. This because attention weights learned by BERT can capture rich linguistic knowledge and is essential for natural language understanding, so it should be transferred to the student.
+During this subphase, embedding, hidden-state and attention distillation are performed, while the classification head is frozen on both models. This because attention weights learned by BERT can capture rich linguistic knowledge and is essential for natural language understanding, so it should be transferred to the student.
 
 More formally, given an input $x$, the loss for this phase is calculated as
 \begin{equation}
@@ -129,9 +135,11 @@ More formally, given an input $x$, the loss for this phase is calculated as
 where
 \begin{itemize}
   \item $L_{attn} = \frac{1}{h} \sum_{i=1}^h MSE(A_i^S, A_i^T)$ is the attention-based distillation. $h$ is the number of attention heads, $A_i \in \mathbb{R}^{l \times l}$ is the unnormalized attention matrix of the i-th head of teacher or student and $l$ is the input text length (512 in this case).
-  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d = 312$) and teacher (with size $d = 768$) respectively, while $W_h \in \mathbb{R}^{312 \times 768}$ is a learnable linear transformation of the hidden states of student into the same space as the teacher's states.  
+  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d = 312$) and teacher (with size $d = 768$) respectively, while $W_h \in \mathbb{R}^{312 \times 768}$ is a learnable linear transformation of the hidden states of student into the same space as the teacher's states. To ensure both teacher and student output pre-softmax attention logits, the forward pass of self-attention has been adapted accordingly.
   \item $L_{embd} = MSE(E^SW_e, E^T)$ is the embedding-based distillation. $E^S$ and $E^T$ refers to the student's and teacher's embeddings respectively, while $W_e$ has the same role as $W_h$.
 \end{itemize}
+In this work, $W_h$ and $W_e$ were not treated as single matrices, but a separate linear projection $W^{(m)}$ for each matched representation has been learned.
+
 The hyperparameters used for this subphase were the following:
 \begin{itemize}
   \item Epochs: 8
@@ -149,11 +157,19 @@ The prediction layer loss implemented in this work has been the following:
 \begin{equation}
   L_{TD-2} = \rho(x) \cdot \underbrace{CE(z_T/T, z_S/T)}_{\text{Soft Loss}} \cdot T^2 + (1 - \rho(x)) \cdot \underbrace{WCE(z_S, y_{true})}_{\text{Weighted Hard Loss}}
 \end{equation}
+where 
+\begin{itemize}
+\item $\rho(x):$ adaptive coefficient. For this work, $\rho(x) = 0.9$ has been used if teacher was correct, $\rho(x) = 0.2$ otherwhise.
+\item $z_T, z_S:$ teacher's and student's logits respectively.
+\item $T:$ the temperature parameter. For this work, $T=1$ worked fine.
+\item $WCE(z_S, y_{true}):$ Weighted Cross Entropy Loss between student's logits and ground truth. As in teacher's fine tuning, the weight has been calculated on the train set as the ratio between No spoiler and Spoiler reviews.
+\end{itemize}
+
 The hyperparameters used for this subphase were the following:
 \begin{itemize}
   \item Epochs: 3
   \item Batch size: 32 (physical dim = 16 and gradient accumulation = 2)
-  \item Learnign rate: $2e-5$
+  \item Learning rate: $2e-5$
 \end{itemize}
 \subsection{Results of distillation}
 \subsubsection{Performance Drop}
