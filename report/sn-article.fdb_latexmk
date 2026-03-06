@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sn-article"] 1772723614.87623 "sn-article.aux" "sn-article.bbl" "sn-article" 1772789002.667 0
+["bibtex sn-article"] 1772793053.97457 "sn-article.aux" "sn-article.bbl" "sn-article" 1772798561.97194 0
   "./sn-bibliography.bib" 1771923981 2325 4f11afd6b24936c9ca6b01e1aa045b49 ""
   "./sn-mathphys-num.bst" 1769158779 67375 943df446db725f71d6bb625fc0d6f4fc ""
-  "sn-article.aux" 1772789000 3692 2bbdc19958e60da553283077e8858b5e "pdflatex"
+  "sn-article.aux" 1772798561 3692 ec40df1f0f5178dd13e61e4416dacd20 "pdflatex"
   (generated)
   "sn-article.bbl"
   "sn-article.blg"
   (rewritten before read)
-["pdflatex"] 1772788996.76273 "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1772789002.66821 0
+["pdflatex"] 1772798558.86754 "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1772798561.9726 0
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772543126 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi602/tcrm1000.pk" 1764699257 11548 ada9204dc6095fee923fb56a800c33da ""
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1764699252 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -151,12 +151,12 @@
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" 1772788993 15553 1deb679942c0caee517903bf0fd2df9c ""
+  "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" 1772798556 16970 8dc11604bd269fb2acb8cbe5a5eb8af4 ""
   "cuted.sty" 1769158779 25941 37777e600592aa9206b474fe03f66b4b ""
-  "sn-article.aux" 1772789000 3692 2bbdc19958e60da553283077e8858b5e "pdflatex"
-  "sn-article.bbl" 1772723615 4640 07f02e6ec12dabb097e1669602941830 "bibtex sn-article"
-  "sn-article.out" 1772789000 3131 1301fd68acb359bfa680e1ab74187700 "pdflatex"
-  "sn-article.tex" 1772788993 15553 1deb679942c0caee517903bf0fd2df9c ""
+  "sn-article.aux" 1772798561 3692 ec40df1f0f5178dd13e61e4416dacd20 "pdflatex"
+  "sn-article.bbl" 1772793054 4640 07f02e6ec12dabb097e1669602941830 "bibtex sn-article"
+  "sn-article.out" 1772798561 3131 1301fd68acb359bfa680e1ab74187700 "pdflatex"
+  "sn-article.tex" 1772798556 16970 8dc11604bd269fb2acb8cbe5a5eb8af4 ""
   "sn-jnl.cls" 1769158779 55857 c14ef9d34b3d95356940eaf177aff85f ""
   (generated)
   "sn-article.aux"
