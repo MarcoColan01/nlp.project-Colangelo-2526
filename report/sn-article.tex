@@ -149,7 +149,7 @@ The hyperparameters used for this subphase were the following:
 \subsubsection{Phase 2: Prediction Layer Distillation}
 During this phase, only prediction layer distillation is performed in order to also fit the predictions of teacher model. A variant of prediction loss has been proposed here. Jiao et al. rely on the following loss defined by Hinton et al., which penalizes the soft cross-entropy loss between the student network's logits against the teacher's logits:
 \begin{equation}
-L_{pred} = CE (z^T/t, z^S/t)
+L_{pred} = CE (z^T/T, z^S/T)
 \end{equation}
 However, by introducing the concept of imperfect teachers, it is possible to rewrite the loss by also introducing hard labels (ground truth) and weights for both soft and hard labels, so that the student learns from the teacher when the teacher produces correct predictions and learns to trust the teacher less when the teacher produces incorrect predictions.
 
