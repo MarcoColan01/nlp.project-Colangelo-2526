@@ -1,74 +1,51 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: sn-article.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 16 items.
-The style file: sn-mathphys-num.bst
-Reallocating 'name_of_file' (item size: 1) to 16 items.
-Reallocating 'glb_str_end' (item size: 4) to 20 items.
-Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
-Reallocating 'global_strs' (item size: 1) to 4000000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: sn-bibliography.bib
 Warning--entry type for "misra2019imdb" isn't style-file defined
 --line 61 of file sn-bibliography.bib
-sn-mathphys-num.bst [2024/07/19 v1.1  bibliography style]
-Reallocating 'wiz_functions' (item size: 4) to 9000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
 You've used 6 entries,
-            7485 wiz_defined-function locations,
-            1223 strings with 10837 characters,
-and the built_in function-call counts, 35604 in all, are:
-= -- 5898
-> -- 137
-< -- 12
-+ -- 2860
-- -- 55
-* -- 1484
-:= -- 6590
-add.period$ -- 6
+            2118 wiz_defined-function locations,
+            523 strings with 4948 characters,
+and the built_in function-call counts, 1736 in all, are:
+= -- 143
+> -- 127
+< -- 0
++ -- 50
+- -- 44
+* -- 111
+:= -- 305
+add.period$ -- 13
 call.type$ -- 6
-change.case$ -- 31
-chr.to.int$ -- 9
+change.case$ -- 40
+chr.to.int$ -- 0
 cite$ -- 6
-duplicate$ -- 168
-empty$ -- 1203
-format.name$ -- 163
-if$ -- 8625
-int.to.chr$ -- 1
-int.to.str$ -- 10
-missing$ -- 0
-newline$ -- 123
-num.names$ -- 30
-pop$ -- 152
+duplicate$ -- 45
+empty$ -- 128
+format.name$ -- 44
+if$ -- 348
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 1
+newline$ -- 28
+num.names$ -- 12
+pop$ -- 63
 preamble$ -- 1
-purify$ -- 27
+purify$ -- 34
 quote$ -- 0
-skip$ -- 3348
+skip$ -- 49
 stack$ -- 0
-substring$ -- 4077
-swap$ -- 51
-text.length$ -- 58
+substring$ -- 30
+swap$ -- 6
+text.length$ -- 0
 text.prefix$ -- 0
-top$ -- 1
-type$ -- 167
+top$ -- 0
+type$ -- 24
 warning$ -- 0
-while$ -- 148
-width$ -- 0
-write$ -- 157
+while$ -- 12
+width$ -- 7
+write$ -- 53
 (There was 1 warning)

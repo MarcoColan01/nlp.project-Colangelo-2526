@@ -1,56 +1,61 @@
-\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}
+\documentclass[11pt, a4paper]{article}
 
-\usepackage{graphicx}%
-\usepackage{multirow}%
-\usepackage{amsmath,amssymb,amsfonts}%
-\usepackage{amsthm}%
-\usepackage{mathrsfs}%
-\usepackage[title]{appendix}%
-\usepackage{xcolor}%
-\usepackage{textcomp}%
-\usepackage{manyfoot}%
-\usepackage{booktabs}%
-\usepackage{algorithm}%
-\usepackage{algorithmicx}%
-\usepackage{algpseudocode}%
-\usepackage{listings}%
-\usepackage{verbatim}
-\usepackage{booktabs}
-\usepackage{makecell}
+% --- Gestione Margini ---
+\usepackage[margin=2.5cm]{geometry}
+
+% --- Pacchetti Standard ---
 \usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{microtype} % Migliora la gestione degli spazi tra le parole
 
+% --- Gestione Autori e Affiliazioni ---
+\usepackage{authblk}
 
-\theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}%  
-\newtheorem{proposition}[theorem]{Proposition}% 
+\setlist[itemize]{nosep,leftmargin=*}
 
-\theoremstyle{thmstyletwo}%
-\newtheorem{example}{Example}%
-\newtheorem{remark}{Remark}%
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{2pt}
 
-\theoremstyle{thmstylethree}%
-\newtheorem{definition}{Definition}%
-
-\raggedbottom
+\widowpenalty=100
+\clubpenalty=100
+\displaywidowpenalty=50
 
 \begin{document}
 
-\title[Short Title]{No Spoiler Please! A TinyBERT Model to Detect Spoiler Reviews on IMDb}
+% --- INTESTAZIONE ---
+\title{\textbf{No Spoiler Please! A TinyBERT Model to Detect Spoiler Reviews on IMDb}}
 
-\author*[1]{\fnm{Marco} \sur{Colangelo}}\email{marco.colangelo@studenti.unimi.it}
-
-\affil[1]{\orgdiv{Department of Computer Science}, 
-  \orgname{University of Milan}, 
-  \city{Milan}, \country{Italy}}
-
-
-\abstract{
-    This report contains the explanation of the work done for the final project of the Natural Language Processing course for the 2025/26 academic year. The project focused on the application of knowledge distillation, a technique used to compress large language models into smaller and more efficient versions. This is achived by training a smaller model (the student) to replicate the behavior of a larger model (the teacher). In particular, this project had the aim to implement a spoiler detector for IMDb's movie reviews: a BERT-base model has been used as the teacher model, while a TinyBERT\_General\_4L\_312D has been used as the student model. The experiments shows that   WAITING FOR RESULTS
-
+\author{
+    Marco Colangelo$^1$ \\
+    \normalsize $^1$Department of Computer Science, University of Milan, Milan, Italy \\
+    \normalsize \textit{Corresponding author:} marco.colangelo@studenti.unimi.it
 }
 
+\date{} % Rimuove la data
+
 \maketitle
-%%-interact=nonstopmode
+
+\begin{abstract}
+This report contains the explanation of the work done for the final project of the Natural Language Processing course for the 2025/26 academic year. The project focused on the application of knowledge distillation, a technique used to compress large language models into smaller and more efficient versions. This is achived by training a smaller model (the student) to replicate the behavior of a larger model (the teacher). In particular, this project had the aim to implement a spoiler detector for IMDb's movie reviews: a BERT-base model has been used as the teacher model, while a TinyBERT\_General\_4L\_312D has been used as the student model. The experiments shows that WAITING FOR RESULTS
+\end{abstract}
+
+
 
 %The introduction provides an overview of the project and a short discussion on the pertinent literature
 \section{Introduction}
@@ -95,18 +100,20 @@ Each row, saved in a .parquet file for efficiency, contains \textit{input\_ids},
 \subsection{Teacher and Student Models Architectures}
 The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with General Knowledge Distillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
-\caption{Parameters of the teacher and student models.} 
-\label{tab:models_parameters} 
-\begin{tabular}{l|cccc|c}
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Parameters of the teacher and student models.}
+\label{tab:models_parameters}
+\begin{tabularx}{\textwidth}{@{}lcccc>{\centering\arraybackslash}X@{}}
 \toprule
-\textbf{Model} & \textbf{Layers} & \textbf{\makecell{Attention \\ Heads}} & \textbf{Embeddings} & \textbf{\makecell{Hidden \\ States}} & \textbf{\makecell{Total \\ Parameters}} \\
+Model & Layers & Heads & Embeddings & Hidden states & Total params. \\
 \midrule
-BERT-base-uncased  & 12 & 12 & 768 & 768 & 110M \\
-TinyBERT\_General\_4L\_312D & 4 & 12 & 312 & 312 & 14.5M \\
+BERT-base-uncased & 12 & 12 & 768 & 768 & 110M \\
+TinyBERT-general  & 4  & 12 & 312 & 312 & 14.5M \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 Both the fine-tuning of the BERT teacher model and the task-specific distillation of the student were performed on a desktop PC equipped with an RTX 3070 (8GB of VRAM) and 32GB of RAM. (purchased before RAM crysis LOL)
 \subsection{BERT Fine Tuning for Spoiler Detection}
@@ -186,6 +193,8 @@ The figure shows a bar chart comparing the evaluation metrics of the two models 
 %Provides a critical discussion on the experimental results and some ideas for future work
 \section{Conclusions}
 
+\bibliographystyle{plain} % O 'ieeetr', 'unsrt', a seconda delle tue preferenze
 \bibliography{sn-bibliography}
-
 \end{document}
+
+
