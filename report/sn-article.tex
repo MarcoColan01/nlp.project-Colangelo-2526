@@ -61,7 +61,7 @@ This report contains the explanation of the work done for the final project of t
 \section{Introduction}
 Very often, before even seeing a film or a TV series, we decide to read some reviews because we're curious to know the opinions of those who have already seen it. In such a situation, it's not uncommon to encounter reviews that, whether intended to spoil something or not, include spoilers (e.g., "The movie is great, but character X dies/does this or that"). Clearly, we want to avoid this: luckily, platforms like IMDb warn us in advance about such reviews.
 
-IMDb is by far the most popular global source for movies and TV shows, and it also includes user-submitted reviews with spoiler warnings for each one. The problem is that users mark reviews as spoilers themselves, but they can lie and insert spoilers on a no spoiler marked review. Other users can report a review as spoiler, and the IMDb moderation team will label it as such, but of course it's not an immediate action. What if there were a browser extension (running locally on users' PCs) that retrieves the text of a review and tells us "Spoiler alert!" before we can even begin reading it? With the recent evolution of LLMs, this task can be accomplished by fine-tuning a sufficiently large pre-trained model, such as BERT.
+IMDb is by far the most popular global source for movies and TV shows, and it also includes user-submitted reviews with spoiler warnings for each one. The problem is that users mark reviews as spoilers themselves, but they can lie and insert spoilers on a no spoiler marked review. Other users can report a review as spoiler, and the IMDb moderation team will label it as such, but of course it's not an immediate action. What if there were a browser extension (running locally on users' PCs) that retrieves the text of a review and tells us "Spoiler alert!" before we can even begin reading it? With the recent evolution of LLMs, this task can be accomplished by fine tuning a sufficiently large pre-trained model, such as BERT.
 
 Language model pre-training, such as BERT, has significantly improved the perfomances of many NLP tasks. However, pre-trained language models are usually computationally expensive, so it is difficult to efficiently execute them on resource-restricted devices (such as the user's PC). A novel Transformer distillation method, specially designed for knowledge distillation of the Transformer-based models, allows to effectively transfer to a smaller student model called TinyBERT the plenty of knowledge from a large pre-trained BERT model. \cite{jiao2020tinybertdistillingbertnatural}
 \subsection{Related Work}
@@ -71,6 +71,7 @@ So far, three main studies have defined the paradigm of model compression via kn
   \item The second study, by Jiao et al. \cite{jiao2020tinybertdistillingbertnatural}, proposes a variant named TinyBERT trained into two distinct phases: General Knowledge Distillation first and Task-Specific Distillation second. While Hinton’s method operates only on the final output layer, Jiao et al. argue that for complex language models, this is insufficient. Their method forces the student to mimic not only the teacher's prediction but also its intermediate representations. 
   \item The third, by Ji \& Zhu \cite{ji2020knowledgedistillationwideneural}, attempts to provide a mathematical justification for why knowledge distillation works, demonstrating that the use of hard labels (ground truth) are necessary during distillation to counteract the so-called "imperfect teacher". This way, the student can understand how much he can trust the teacher's predictions.
 \end{itemize}
+
 The proposed TinyBERT model diversifies by using only task-specific distillation and introducing a loss factor on hard labels for prediction layer distillation.
 
 %The Research question and methodology provides a clear statement on the goals of the project, an overview of the proposed approach, and a formal definition of the problem
@@ -82,11 +83,11 @@ Research question: \textit{To what extent can a highly compressed language model
 \subsection{Proposed approach}
 The proposed approach is based on the following pipeline.
 \begin{itemize}
-\item Data Preprocessing: a truncation strategy was applied that considers only the first 128 and last 382 tokens of a review's text. This is because spoilers are often found at the end of a review, but the initial part is important because it introduces context. \cite{sun2020finetuneberttextclassification}
-\item Teacher Fine-Tuning: Layer-wise Learning Rate Decay was used to avoid catastrophic forgetting. Also, weighted cross-entropy loss was used due to the dataset's imbalance.
-\item Task-Specific Distillation: this phase is divided into two subphases. In the first, intermediate-layer distillation is performed, while in the second, prediction-layer distillation is performed.
-\item Evaluation and computational saving metrics: some standard plots such as bar charts of evaluation metrics and confusion matrix have been constructed, as well as other plots to evaluate the computational savings of the student model compared to the teacher model.
-\item Embeddings and Attention Matrices exploration: in order to see if the student's internal representations actually aligned with those of the teacher, techniques such as PCA on the embeddings of both models and plots of the attention matrices using heatmaps were used.
+\item \textbf{Data Preprocessing:} a truncation strategy was applied that considers only the first 128 and last 382 tokens of a review's text. This is because spoilers are often found at the end of a review, but the initial part is important because it introduces context. \cite{sun2020finetuneberttextclassification}
+\item \textbf{Teacher Fine Tuning:} layer-wise learning rate decay was used to avoid catastrophic forgetting. Also, weighted cross-entropy loss was used due to the dataset's imbalance.
+\item \textbf{Task-Specific Distillation:} this phase is divided into two subphases. In the first, intermediate-layer distillation is performed, while in the second, prediction-layer distillation is performed.
+\item \textbf{Evaluation and computational saving metrics:} some standard plots such as bar charts of evaluation metrics and confusion matrix have been constructed, as well as other plots to evaluate the computational savings of the student model compared to the teacher model.
+\item \textbf{Embeddings and Attention Matrices exploration:} in order to see if the student's internal representations actually aligned with those of the teacher, techniques such as PCA on the embeddings of both models and plots of the attention matrices using heatmaps were used.
 \end{itemize}
 
 %The Experimental Results provides an overview of the dataset used for experiments, the metrics used for evaluating performances, and the experimental methodology. Presents experimental results as plots and/or tables.
@@ -98,37 +99,43 @@ To overcome the 512 maximum token limit with BERT, a solution based on the head+
 
 Each row, saved in a .parquet file for efficiency, contains \textit{input\_ids}, \textit{attention\_mask} and \textit{token\_type\_ids}. If the review exceeds the limit, head+tail truncation is applied to build a 512-token sequence; otherwise the sequence keeps its natural length and is padded dynamically at batch time.
 \subsection{Teacher and Student Models Architectures}
-The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with General Knowledge Distillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
+The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with general knowledge istillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
 
 \begin{table}[htbp]
 \centering
 \small
 \setlength{\tabcolsep}{4pt}
 \caption{Parameters of the teacher and student models.}
+\vspace{0.2cm}
 \label{tab:models_parameters}
-\begin{tabularx}{\textwidth}{@{}lcccc>{\centering\arraybackslash}X@{}}
-\toprule
-Model & Layers & Heads & Embeddings & Hidden states & Total params. \\
-\midrule
+\begin{tabularx}{\textwidth}{|l| >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |}
+\hline
+Model & Layers & \makecell{Attention \\ heads} & Embeddings & \makecell{Hidden \\ states} & \makecell{Total \\ params} \\
+\hline
 BERT-base-uncased & 12 & 12 & 768 & 768 & 110M \\
 TinyBERT-general  & 4  & 12 & 312 & 312 & 14.5M \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
-Both the fine-tuning of the BERT teacher model and the task-specific distillation of the student were performed on a desktop PC equipped with an RTX 3070 (8GB of VRAM) and 32GB of RAM. (purchased before RAM crysis LOL)
+Both the fine tuning of the BERT teacher model and the task-specific distillation of the student were performed on a desktop PC equipped with an RTX 3070 (8GB of VRAM) and 32GB of RAM. 
 \subsection{BERT Fine Tuning for Spoiler Detection}
-Since the dataset contains an imbalance in labels (73\% No spoiler and 26\% Spoiler), a weighted cross entropy loss (WCE) was used during BERT fine-tuning, giving more importance to the Spoiler class. The weight has been calculated on the train set as the ratio between the number of negative samples and the number of positive samples. 
+Since the dataset contains an imbalance in labels (73\% no spoiler and 26\% spoiler), a weighted cross entropy loss (WCE) was used during BERT fine tuning, giving more importance to the spoiler class. The weight has been calculated on the train set as the ratio between the number of negative samples and the number of positive samples. 
 
-The hyperparameters used for Teacher Fine Tuning are the following:
+The hyperparameters used for Teacher fine tuning are the following:
 \begin{itemize}
 \item Epochs: 3
 \item Batch size: 24 (physical dimension = 8 and gradient accumulation = 3)
 \item Warmup ratio: 0.03
-\item Optimizer: AdamW with weight decay of 0.01 and a custom learning rate implemented as Layer-wise Learning Rate Decay (base LR = $2e-5$, decay factor = $0.95$) to give a lower LR to the lower layers of the network. This, for BERT Fine Tuning, can overcome the catastrophic forgetting problem. \cite{sun2020finetuneberttextclassification}
+\item Optimizer: AdamW with weight decay of 0.01 and a custom learning rate implemented as Layer-wise Learning Rate Decay (base LR = $2e-5$, decay factor = $0.95$) to give a lower LR to the lower layers of the network. This, for BERT fine tuning, can overcome the catastrophic forgetting problem. \cite{sun2020finetuneberttextclassification}
 \item Metric for best model: PR-AUC on validation set. This choice is justified by the imbalance of the dataset and the chosen task.
 \end{itemize}
-
-Figure DA INSERIRE  shows the metrics obtained with the fine-tuned teacher compared to the teacher without fine-tuning.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{metrics_teacher_barchart.png}
+    \caption{Inserisci qui la didascalia della tua figura.}
+    \label{fig:metrics_finetuning} 
+\end{figure}
+Figure \ref{fig:metrics_finetuning} shows the metrics obtained with the fine tuned teacher compared to the teacher without fine tuning.
 
 \subsubsection{Results of BERT Fine Tuning}
 \subsection{Task-Specific Distillation}
@@ -147,6 +154,8 @@ where
   \item $L_{embd} = MSE(E^SW_e, E^T)$ is the embedding-based distillation. $E^S$ and $E^T$ refers to the student's and teacher's embeddings respectively, while $W_e$ has the same role as $W_h$.
 \end{itemize}
 In this work, $W_h$ and $W_e$ were not treated as single matrices, but a separate linear projection $W^{(m)}$ for each matched representation has been learned.
+
+To overcome the mismatch in the number of layers of student and teacher models, a mapping function $n = g(m)$ between student and teacher layers has been used. In this way, the $m-th$ layer of student model learns from the $g(m)-th$ layer of teacher model.
 
 The hyperparameters used for this subphase were the following:
 \begin{itemize}
@@ -183,10 +192,27 @@ The hyperparameters used for this subphase were the following:
 \subsection{Results of distillation}
 As shown in this subsection, distillation achieved its goals.
 \subsubsection{Performance Drop}
-The figure shows the confusion matrices of the fine-tuned teacher and the distilled student, both evaluated on the initially constructed test set. It can be seen that the performance of the two models is very similar, with the student introducing a slightly higher number of false negatives and true positives.
-
-The figure shows a bar chart comparing the evaluation metrics of the two models and the COTS (out-of-the-shelf) student. For all metrics, the performance delta is very small, demonstrating the effective effectiveness of the KD. The COTS student has a recall of 1, but all other metrics are much lower. This indicates the model captures all actual positives, but at the cost of high false positives. This is expected with the imbalanced dataset and a model with few parameters, which learns to predict the positive class too liberally.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{confusion_matrices_absolute.png}
+    \caption{Inserisci qui la didascalia della tua figura.}
+    \label{fig:confusion_matrices} 
+\end{figure}
+Figure \ref{fig:confusion_matrices} and Figure show the confusion matrices of the fine-tuned teacher and the distilled student and bar charts comparing the evaluation metrics of the two models and the COTS (out-of-the-shelf) student respectively, all evaluated on the initially constructed test set. It can be seen that the performance of the two models is very similar, with the student introducing a slightly higher number of false negatives and true positives. The performance delta is very small for every metric, demonstrating the effective effectiveness of the KD. The COTS student has a recall of 1, but all other metrics are much lower. This indicates the model captures all actual positives, but at the cost of high false positives. This is expected with the imbalanced dataset and a model with few parameters, which learns to predict the positive class too liberally.
 \subsubsection{Computational Savings}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{scatter_time_auc.png}
+    \caption{Inserisci qui la didascalia della tua figura.}
+    \label{fig:scatter_time} 
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{scatter_params_auc.png}
+    \caption{Inserisci qui la didascalia della tua figura.}
+    \label{fig:scatter_params} 
+\end{figure}
+Figure \ref{fig:scatter_time} and Figure \ref{fig:scatter_params} show two scatter plots: the first one shows the relationship between PR-AUC and inference time (ms per sample) and the second one shows the relationship between PR-AUC and model size (\# of parameters) respectively. It can be seen, in both graphs, that the distilled student is in a more optimal point than the teacher (both base and fine-tuned), both in terms of inference time and model size and it outperformes the COTS student and not fine tuned teacher.
 \subsubsection{Interpretability}
 
 
