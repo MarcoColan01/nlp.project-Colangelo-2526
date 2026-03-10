@@ -93,7 +93,7 @@ The proposed approach is based on the following pipeline.
 %The Experimental Results provides an overview of the dataset used for experiments, the metrics used for evaluating performances, and the experimental methodology. Presents experimental results as plots and/or tables.
 \section{Experimental Results} 
 \subsection{Data and Preprocessing}
-The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on Kaggle. This dataset (in JSON format) contains over 500,000 IMDb movie reviews, each with a boolean label that marks it as a spoiler or not. I choose to extract a random sample of 300,000 total reviews, then divided it into training (80\%), validation and test sets (10\% each). 
+The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on Kaggle. This dataset (in JSON format) contains over 500,000 IMDb movie reviews, each with a boolean label that marks it as a spoiler or not. I choose to extract a random sample of 300,000 total reviews, then divided it into training (80\%), validation and test sets (10\% each). The dataset split was performed by grouping samples according to the \textit{movie\_id} attribute, ensuring that reviews of the same film do not appear in different splits and thus preventing data leakage.
 
 To overcome the 512 maximum token limit with BERT, a solution based on the head+tail of the review text was used \cite{sun2020finetuneberttextclassification}: the text is first tokenized using the BERT vocabulary, also adding the special tokens [CLS] at the start and [SEP] at the end. If the resulting token list is longer than 512, only the first 128 tokens after [CLS] and the last 382 before [SEP] are retained.
 
@@ -198,7 +198,7 @@ As shown in this subsection, distillation achieved its goals.
     \caption{Inserisci qui la didascalia della tua figura.}
     \label{fig:confusion_matrices} 
 \end{figure}
-Figure \ref{fig:confusion_matrices} and Figure show the confusion matrices of the fine-tuned teacher and the distilled student and bar charts comparing the evaluation metrics of the two models and the COTS (out-of-the-shelf) student respectively, all evaluated on the initially constructed test set. It can be seen that the performance of the two models is very similar, with the student introducing a slightly higher number of false negatives and true positives. The performance delta is very small for every metric, demonstrating the effective effectiveness of the KD. The COTS student has a recall of 1, but all other metrics are much lower. This indicates the model captures all actual positives, but at the cost of high false positives. This is expected with the imbalanced dataset and a model with few parameters, which learns to predict the positive class too liberally.
+Figure \ref{fig:confusion_matrices} and Figure show the confusion matrices of the fine-tuned teacher and the distilled student and bar charts comparing the evaluation metrics of the two models and the COTS (out-of-the-shelf) student respectively, all evaluated on the initially constructed test set. Among the reported metrics, ROC-AUC and PR-AUC are threshold-independent, whereas accuracy, precision, recall and F1 depend on the decision threshold selected on the validation set. IIt can be seen that the performance of the two models is very similar overall, with the distilled student showing a slight increase in false negatives and a corresponding small drop in recall. The performance delta is very small for every metric, demonstrating the effective effectiveness of the KD. The COTS student has a recall of 1, but all other metrics are much lower. This indicates the model captures all actual positives, but at the cost of high false positives. This is expected with the imbalanced dataset and a model with few parameters, which learns to predict the positive class too liberally.
 \subsubsection{Computational Savings}
 \begin{figure}[htbp]
     \centering
@@ -212,8 +212,28 @@ Figure \ref{fig:confusion_matrices} and Figure show the confusion matrices of th
     \caption{Inserisci qui la didascalia della tua figura.}
     \label{fig:scatter_params} 
 \end{figure}
-Figure \ref{fig:scatter_time} and Figure \ref{fig:scatter_params} show two scatter plots: the first one shows the relationship between PR-AUC and inference time (ms per sample) and the second one shows the relationship between PR-AUC and model size (\# of parameters) respectively. It can be seen, in both graphs, that the distilled student is in a more optimal point than the teacher (both base and fine-tuned), both in terms of inference time and model size and it outperformes the COTS student and not fine tuned teacher.
+Figure \ref{fig:scatter_time} and Figure \ref{fig:scatter_params} show two scatter plots: the first one shows the relationship between PR-AUC and inference time (ms per sample) and the second one shows the relationship between PR-AUC and model size (\# of parameters) respectively. It can be seen in both graphs that the distilled student occupies a more favorable trade-off point than the teacher base model and the COTS student, achieving much lower inference time and model size while retaining performance close to that of the fine-tuned teacher. In other words, the distilled student offers the best efficiency-performance compromise among the compared models.
 \subsubsection{Interpretability}
+
+\textbf{Embeddings exploration}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pca_embeddings.png}
+    \caption{Inserisci qui la didascalia della tua figura.}
+    \label{fig:pca_embeddings} 
+\end{figure}
+To qualitatively assess the alignment of internal representations after the intermediate-layer distillation phase, the last-layer hidden states of the fine-tuned teacher and of the phase-1 student were compared on a balanced subset of the test set. Since the student hidden size is smaller than the teacher hidden size, the student representations were first projected into the teacher space through the learned linear projection used during distillation, and then mean pooling was applied over the token dimension. A 2D PCA was fitted in the teacher space and both teacher and student representations were projected onto the same axes. Figure \ref{fig:pca_embeddings} shows the resulting plots. The two distributions exhibit a strong overlap for both the spoiler and no-spoiler classes, while the average cosine similarity between teacher and student representations remains very high in both cases (around 0.96). Although PCA only provides a qualitative low-dimensional projection, these results suggest that the student learned to organize examples in a representation space that is highly consistent with that of the teacher.
+
+\textbf{Attention heatmaps}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{attn_heatmaps.png}
+    \caption{Inserisci qui la didascalia della tua figura.}
+    \label{fig:attn_heatmaps} 
+\end{figure}
+To complement the embedding-level analysis, a qualitative inspection of attention patterns was performed on a manually selected challenging review containing the token \textit{dies}, which is typically associated with spoiler-like content. For visualization purposes, the attention distributions of the last teacher layer and last student layer were averaged across heads and restricted to a local window centered around the target token. Figure \ref{fig:attn_heatmaps} shows the resulting heatmaps. The two attention patterns exhibit a very similar structure, with high cosine similarity and very small mean squared error, and the overlap among the top-attended positions is also high. This indicates that the student focuses on contextual cues that are largely consistent with those used by the teacher, instead of reacting only to the presence of a potentially misleading keyword. The result should be interpreted as qualitative evidence on a single example, but it still supports the claim that intermediate-layer distillation helped the student inherit not only the teacher's predictions, but also part of its internal contextualization behavior.
 
 
 %Provides a critical discussion on the experimental results and some ideas for future work

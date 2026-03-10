@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sn-article"] 1773070021.23485 "sn-article.aux" "sn-article.bbl" "sn-article" 1773070031.69471 0
+["bibtex sn-article"] 1773134844.34451 "sn-article.aux" "sn-article.bbl" "sn-article" 1773135283.99923 0
   "./sn-bibliography.bib" 1771923981 2325 4f11afd6b24936c9ca6b01e1aa045b49 ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "sn-article.aux" 1773070030 3885 0f02eb63d2f098cb3a3f9397bd979905 "pdflatex"
+  "sn-article.aux" 1773135283 4284 34a2f11caedbb98d12580e31a49c54d3 "pdflatex"
   (generated)
   "sn-article.bbl"
   "sn-article.blg"
   (rewritten before read)
-["pdflatex"] 1773070021.7118 "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1773070031.69559 0
+["pdflatex"] 1773135274.26942 "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1773135284.00039 0
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772894790 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1772894793 12668 e69a4634340b07dd503cff3355e77ef4 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1764698889 13257343 5e1f0372a02c26f9689caf335e42d8dc ""
@@ -102,14 +102,16 @@
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1749468414 7243 a2c17f18e2c9b702b84fad03d5f9c78b ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1749468414 7532 26d26e9d8f2ca784270d5da8ec7d102b ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" 1773070005 19075 13406ec83210c681e5775ec6d5d5efe3 ""
+  "attn_heatmaps.png" 1773134702 78428 827ab0f5a297e198821e6f173c1d3444 ""
+  "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" 1773135273 22403 ad22a67fa457da69f6d666f0a319e23e ""
   "confusion_matrices_absolute.png" 1772707816 220109 1660e0d4b09bfd94c0cdb75b95b193a0 ""
   "metrics_teacher_barchart.png" 1772707816 733600 15929c02b0d212b437d60997789eb006 ""
+  "pca_embeddings.png" 1773134719 181876 3f423d5cf5ecea6715ced15fe8597e7a ""
   "scatter_params_auc.png" 1772441082 302871 737a906a95b60baefcb39c7db4448f25 ""
   "scatter_time_auc.png" 1772441082 294516 7d42a39dce06d7dbe3a7a14b03be9d6e ""
-  "sn-article.aux" 1773070030 3885 0f02eb63d2f098cb3a3f9397bd979905 "pdflatex"
-  "sn-article.bbl" 1773070021 1161 89b2237eb594a705ca94924d168f6db5 "bibtex sn-article"
-  "sn-article.tex" 1773070005 19075 13406ec83210c681e5775ec6d5d5efe3 ""
+  "sn-article.aux" 1773135283 4284 34a2f11caedbb98d12580e31a49c54d3 "pdflatex"
+  "sn-article.bbl" 1773134844 1161 89b2237eb594a705ca94924d168f6db5 "bibtex sn-article"
+  "sn-article.tex" 1773135273 22403 ad22a67fa457da69f6d666f0a319e23e ""
   (generated)
   "sn-article.aux"
   "sn-article.log"
