@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sn-article"] 1773134844.34451 "sn-article.aux" "sn-article.bbl" "sn-article" 1773135283.99923 0
+["bibtex sn-article"] 1773138544.47174 "sn-article.aux" "sn-article.bbl" "sn-article" 1773138556.00647 0
   "./sn-bibliography.bib" 1771923981 2325 4f11afd6b24936c9ca6b01e1aa045b49 ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "sn-article.aux" 1773135283 4284 34a2f11caedbb98d12580e31a49c54d3 "pdflatex"
+  "sn-article.aux" 1773138555 4196 11fd4731a674bf8f85ba1dba887feab3 "pdflatex"
   (generated)
   "sn-article.bbl"
   "sn-article.blg"
   (rewritten before read)
-["pdflatex"] 1773135274.26942 "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1773135284.00039 0
+["pdflatex"] 1773138544.9326 "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" "sn-article.pdf" "sn-article" 1773138556.00721 0
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772894790 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1772894793 12668 e69a4634340b07dd503cff3355e77ef4 ""
   "C:/Users/cola0/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1764698889 13257343 5e1f0372a02c26f9689caf335e42d8dc ""
@@ -103,15 +103,14 @@
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1749468414 7532 26d26e9d8f2ca784270d5da8ec7d102b ""
   "C:/Users/cola0/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "attn_heatmaps.png" 1773134702 78428 827ab0f5a297e198821e6f173c1d3444 ""
-  "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" 1773135273 22403 ad22a67fa457da69f6d666f0a319e23e ""
+  "c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex" 1773138532 23283 9013efbfc663c75f08f67d938fafdbce ""
   "confusion_matrices_absolute.png" 1772707816 220109 1660e0d4b09bfd94c0cdb75b95b193a0 ""
+  "efficiency_tradeoff.png" 1773137620 730246 c1b40ded738046394c66e1439dc48d85 ""
   "metrics_teacher_barchart.png" 1772707816 733600 15929c02b0d212b437d60997789eb006 ""
   "pca_embeddings.png" 1773134719 181876 3f423d5cf5ecea6715ced15fe8597e7a ""
-  "scatter_params_auc.png" 1772441082 302871 737a906a95b60baefcb39c7db4448f25 ""
-  "scatter_time_auc.png" 1772441082 294516 7d42a39dce06d7dbe3a7a14b03be9d6e ""
-  "sn-article.aux" 1773135283 4284 34a2f11caedbb98d12580e31a49c54d3 "pdflatex"
-  "sn-article.bbl" 1773134844 1161 89b2237eb594a705ca94924d168f6db5 "bibtex sn-article"
-  "sn-article.tex" 1773135273 22403 ad22a67fa457da69f6d666f0a319e23e ""
+  "sn-article.aux" 1773138555 4196 11fd4731a674bf8f85ba1dba887feab3 "pdflatex"
+  "sn-article.bbl" 1773138544 1161 89b2237eb594a705ca94924d168f6db5 "bibtex sn-article"
+  "sn-article.tex" 1773138532 23283 9013efbfc663c75f08f67d938fafdbce ""
   (generated)
   "sn-article.aux"
   "sn-article.log"

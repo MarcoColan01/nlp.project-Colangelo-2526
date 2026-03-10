@@ -52,7 +52,7 @@
 \maketitle
 
 \begin{abstract}
-This report contains the explanation of the work done for the final project of the Natural Language Processing course for the 2025/26 academic year. The project focused on the application of knowledge distillation, a technique used to compress large language models into smaller and more efficient versions. This is achived by training a smaller model (the student) to replicate the behavior of a larger model (the teacher). In particular, this project had the aim to implement a spoiler detector for IMDb's movie reviews: a BERT-base model has been used as the teacher model, while a TinyBERT\_General\_4L\_312D has been used as the student model. The experiments shows that WAITING FOR RESULTS
+This report presents a knowledge distillation approach for spoiler detection in IMDb movie reviews. The goal is to transfer the predictive behavior of a fine-tuned BERT-base-uncased teacher model to a smaller and more efficient TinyBERT\_General\_4L\_312D student model, while preserving competitive classification performance. To address the task, the teacher was first fine-tuned on the IMDb Spoiler Dataset using a head+tail truncation strategy for long reviews and a weighted cross-entropy loss to mitigate class imbalance. The student was then distilled in two phases: an intermediate-layer distillation phase based on embedding, hidden-state and attention alignment, followed by a prediction-layer distillation phase based on softened teacher logits and hard labels. Experimental results show that the distilled student remains close to the fine-tuned teacher, with only a 3.74\% reduction in PR-AUC, while reducing the number of parameters by 86.76\% and the inference time by 77.81\%. Additional qualitative analyses on internal representations and attention patterns further suggest that the student successfully inherits part of the teacher's internal behavior. Overall, the results indicate that knowledge distillation is an effective strategy for obtaining a lightweight spoiler detector with a favorable efficiency--performance trade-off.
 \end{abstract}
 
 
@@ -132,7 +132,7 @@ The hyperparameters used for Teacher fine tuning are the following:
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{metrics_teacher_barchart.png}
-    \caption{Inserisci qui la didascalia della tua figura.}
+    \caption{Evaluation metrics: BERT-base without and with fine tuning.}
     \label{fig:metrics_finetuning} 
 \end{figure}
 Figure \ref{fig:metrics_finetuning} shows the metrics obtained with the fine tuned teacher compared to the teacher without fine tuning.
@@ -195,27 +195,21 @@ As shown in this subsection, distillation achieved its goals.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{confusion_matrices_absolute.png}
-    \caption{Inserisci qui la didascalia della tua figura.}
+    \caption{Confusion matrices: teacher fine tuned vs student distilled}
     \label{fig:confusion_matrices} 
 \end{figure}
-Figure \ref{fig:confusion_matrices} and Figure show the confusion matrices of the fine-tuned teacher and the distilled student and bar charts comparing the evaluation metrics of the two models and the COTS (out-of-the-shelf) student respectively, all evaluated on the initially constructed test set. Among the reported metrics, ROC-AUC and PR-AUC are threshold-independent, whereas accuracy, precision, recall and F1 depend on the decision threshold selected on the validation set. IIt can be seen that the performance of the two models is very similar overall, with the distilled student showing a slight increase in false negatives and a corresponding small drop in recall. The performance delta is very small for every metric, demonstrating the effective effectiveness of the KD. The COTS student has a recall of 1, but all other metrics are much lower. This indicates the model captures all actual positives, but at the cost of high false positives. This is expected with the imbalanced dataset and a model with few parameters, which learns to predict the positive class too liberally.
+Figure \ref{fig:confusion_matrices} and Figure \ref{fig:performance_bars} show the confusion matrices of the fine-tuned teacher and the distilled student, and the bar charts comparing the evaluation metrics of these two models with the COTS (out-of-the-shelf) student, respectively, all evaluated on the initially constructed test set. Among the reported metrics, ROC-AUC and PR-AUC are threshold-independent, whereas accuracy, precision, recall and F1 depend on the decision threshold selected on the validation set. It can be seen that the performance of the two models is very similar overall, with the distilled student showing a slight increase in false negatives and a corresponding small drop in recall. In particular, with respect to the fine-tuned teacher, the distilled student exhibits only a 3.74\% decrease in PR-AUC, confirming that the performance loss introduced by KD is limited. The performance gap is similarly small across the other metrics, which supports the effectiveness of the proposed distillation strategy. The COTS student has a recall of 1, but all other metrics are much lower. This indicates that the model captures all actual positives, but at the cost of a high number of false positives. This behavior is expected in an imbalanced setting, where a small model may learn to predict the positive class too liberally.
 \subsubsection{Computational Savings}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{scatter_time_auc.png}
-    \caption{Inserisci qui la didascalia della tua figura.}
-    \label{fig:scatter_time} 
+    \includegraphics[width=0.9\textwidth]{efficiency_tradeoff.png}
+    \caption{Scatter plots that compare PR-AUC and inference time (right) and PR-AUC and number of parameters (left) for all the models.}
+    \label{fig:scatters_tradeoffs} 
 \end{figure}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{scatter_params_auc.png}
-    \caption{Inserisci qui la didascalia della tua figura.}
-    \label{fig:scatter_params} 
-\end{figure}
-Figure \ref{fig:scatter_time} and Figure \ref{fig:scatter_params} show two scatter plots: the first one shows the relationship between PR-AUC and inference time (ms per sample) and the second one shows the relationship between PR-AUC and model size (\# of parameters) respectively. It can be seen in both graphs that the distilled student occupies a more favorable trade-off point than the teacher base model and the COTS student, achieving much lower inference time and model size while retaining performance close to that of the fine-tuned teacher. In other words, the distilled student offers the best efficiency-performance compromise among the compared models.
+Figure \ref{fig:scatters_tradeoffs} shows two scatter plots: the first one illustrates the relationship between PR-AUC and inference time (ms per sample), while the second one shows the relationship between PR-AUC and model size (\# of parameters). Both graphs highlight that the distilled student lies in a substantially more favorable region of the efficiency--performance space than the teacher base model and the COTS student. In particular, compared to the fine-tuned teacher, it reduces inference time by 77.81\% and the number of parameters by 86.76\%, while remaining close in predictive performance. Therefore, the distilled student represents the best efficiency--performance compromise among the compared models.
 \subsubsection{Interpretability}
 
-\textbf{Embeddings exploration}
+\textbf{Embeddings analysis}
 
 \begin{figure}[htbp]
     \centering
@@ -225,7 +219,7 @@ Figure \ref{fig:scatter_time} and Figure \ref{fig:scatter_params} show two scatt
 \end{figure}
 To qualitatively assess the alignment of internal representations after the intermediate-layer distillation phase, the last-layer hidden states of the fine-tuned teacher and of the phase-1 student were compared on a balanced subset of the test set. Since the student hidden size is smaller than the teacher hidden size, the student representations were first projected into the teacher space through the learned linear projection used during distillation, and then mean pooling was applied over the token dimension. A 2D PCA was fitted in the teacher space and both teacher and student representations were projected onto the same axes. Figure \ref{fig:pca_embeddings} shows the resulting plots. The two distributions exhibit a strong overlap for both the spoiler and no-spoiler classes, while the average cosine similarity between teacher and student representations remains very high in both cases (around 0.96). Although PCA only provides a qualitative low-dimensional projection, these results suggest that the student learned to organize examples in a representation space that is highly consistent with that of the teacher.
 
-\textbf{Attention heatmaps}
+\textbf{Attention heatmap analysis}
 
 \begin{figure}[htbp]
     \centering
