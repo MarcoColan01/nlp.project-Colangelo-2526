@@ -1,0 +1,16 @@
+numpy
+pandas
+pyarrow
+scikit-learn
+torch
+transformers
+datasets
+accelerate
+safetensors
+tqdm
+matplotlib
+seaborn
+kaggle
+jupyter
+notebook
+ipykernel
