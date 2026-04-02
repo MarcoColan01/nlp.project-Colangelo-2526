@@ -83,7 +83,7 @@ Research question: \textit{To what extent can a highly compressed language model
 \subsection{Proposed approach}
 The proposed approach is based on the following pipeline.
 \begin{itemize}
-\item \textbf{Data Preprocessing:} a truncation strategy was applied that considers only the first 128 and last 382 tokens of a review's text. This is because spoilers are often found at the end of a review, but the initial part is important because it introduces context. \cite{sun2020finetuneberttextclassification}
+\item \textbf{Data Preprocessing:} a truncation strategy that considers only the first 128 and last 382 tokens of a review's text was applied. This is because spoilers are often found at the end of a review, but the initial part is important because it introduces context. \cite{sun2020finetuneberttextclassification}
 \item \textbf{Teacher Fine Tuning:} layer-wise learning rate decay was used to avoid catastrophic forgetting. Also, weighted cross-entropy loss was used due to the dataset's imbalance.
 \item \textbf{Task-Specific Distillation:} this phase is divided into two subphases. In the first, intermediate-layer distillation is performed, while in the second, prediction-layer distillation is performed.
 \item \textbf{Evaluation and computational saving metrics:} some standard plots such as bar charts of evaluation metrics and confusion matrix have been constructed, as well as other plots to evaluate the computational savings of the student model compared to the teacher model.
@@ -95,11 +95,9 @@ The proposed approach is based on the following pipeline.
 \subsection{Data and Preprocessing}
 The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on Kaggle. This dataset (in JSON format) contains over 500,000 IMDb movie reviews, each with a boolean label that marks it as a spoiler or not. I choose to extract a random sample of 300,000 total reviews, then divided it into training (80\%), validation and test sets (10\% each). The dataset split was performed by grouping samples according to the \textit{movie\_id} attribute, ensuring that reviews of the same film do not appear in different splits and thus preventing data leakage.
 
-To overcome the 512 maximum token limit with BERT, a solution based on the head+tail of the review text was used \cite{sun2020finetuneberttextclassification}: the text is first tokenized using the BERT vocabulary, also adding the special tokens [CLS] at the start and [SEP] at the end. If the resulting token list is longer than 512, only the first 128 tokens after [CLS] and the last 382 before [SEP] are retained.
-
-Each row, saved in a .parquet file for efficiency, contains \textit{input\_ids}, \textit{attention\_mask} and \textit{token\_type\_ids}. If the review exceeds the limit, head+tail truncation is applied to build a 512-token sequence; otherwise the sequence keeps its natural length and is padded dynamically at batch time.
+To overcome the 512 maximum token limit with BERT, a solution based on the head+tail of the review text was used \cite{sun2020finetuneberttextclassification}: the text is first tokenized using the BERT vocabulary, also adding the special tokens [CLS] at the start and [SEP] at the end. If the resulting token list is longer than 512, only the first 128 tokens after [CLS] and the last 382 before [SEP] are retained; otherwise the sequence keeps its natural length and is padded dynamically at batch time. Each row, saved in a .parquet file for efficiency, contains \textit{input\_ids}, \textit{attention\_mask} and \textit{token\_type\_ids}.
 \subsection{Teacher and Student Models Architectures}
-The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with general knowledge istillation already performed (and therefore not necessary for my work) and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
+The choosen teacher model was BERT-base-uncased \cite{DBLP:journals/corr/abs-1810-04805}, while the choosen student model was TinyBERT\_General\_4L\_312D \cite{jiao2020tinybertdistillingbertnatural}: this because this is exactly the TinyBERT model from Jiao et al with General Knowledge Distillation already performed and, more importantly, it allows to implement the same techniques they use to handle the mismatch in the number of layers and dimensions of hidden states and embeddings \cite{jiao2020tinybertdistillingbertnatural}. Table \ref{tab:models_parameters} shows the differences in the number of parameters between the two models. 
 
 \begin{table}[htbp]
 \centering
@@ -121,7 +119,7 @@ Both the fine tuning of the BERT teacher model and the task-specific distillatio
 \subsection{BERT Fine Tuning for Spoiler Detection}
 Since the dataset contains an imbalance in labels (73\% no spoiler and 26\% spoiler), a weighted cross entropy loss (WCE) was used during BERT fine tuning, giving more importance to the spoiler class. The weight has been calculated on the train set as the ratio between the number of negative samples and the number of positive samples. 
 
-The hyperparameters used for Teacher fine tuning are the following:
+The hyperparameters used for teacher fine tuning were the following:
 \begin{itemize}
 \item Epochs: 3
 \item Batch size: 24 (physical dimension = 8 and gradient accumulation = 3)
@@ -137,7 +135,6 @@ The hyperparameters used for Teacher fine tuning are the following:
 \end{figure}
 Figure \ref{fig:metrics_finetuning} shows the metrics obtained with the fine tuned teacher compared to the teacher without fine tuning.
 
-\subsubsection{Results of BERT Fine Tuning}
 \subsection{Task-Specific Distillation}
 The task-specific distillation phase is in turn divided into two distinct sub-phases.
 \subsubsection{Phase 1: Intermediate Layers Distillation}
@@ -149,8 +146,8 @@ More formally, given an input $x$, the loss for this phase is calculated as
 \end{equation}
 where
 \begin{itemize}
-  \item $L_{attn} = \frac{1}{h} \sum_{i=1}^h MSE(A_i^S, A_i^T)$ is the attention-based distillation. $h$ is the number of attention heads, $A_i \in \mathbb{R}^{l \times l}$ is the unnormalized attention matrix of the i-th head of teacher or student and $l$ is the input text length (512 in this case).
-  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d = 312$) and teacher (with size $d = 768$) respectively, while $W_h \in \mathbb{R}^{312 \times 768}$ is a learnable linear transformation of the hidden states of student into the same space as the teacher's states. To ensure both teacher and student output pre-softmax attention logits, the forward pass of self-attention has been adapted accordingly.
+  \item $L_{attn} = \frac{1}{h} \sum_{i=1}^h MSE(A_i^S, A_i^T)$ is the attention-based distillation. $h$ is the number of attention heads, $A_i \in \mathbb{R}^{l \times l}$ is the unnormalized attention matrix of the i-th head of teacher ($A^T_i$) or student ($A^S_i$) and $l$ is the input text length (512 in this case).
+  \item $L_{hidn} = MSE(H^S W_h, H^T)$ is the hidden states-based distillation. $H^S \in \mathbb{R}^{l \times d'}$ and $H^T \in \mathbb{R}^{l \times d}$ refer to the hidden states of the student (with size $d' = 312$) and teacher (with size $d = 768$) respectively, while $W_h \in \mathbb{R}^{312 \times 768}$ is a learnable linear transformation of the hidden states of student into the same space as the teacher's states. To ensure both teacher and student output pre-softmax attention logits, the forward pass of self-attention has been adapted accordingly.
   \item $L_{embd} = MSE(E^SW_e, E^T)$ is the embedding-based distillation. $E^S$ and $E^T$ refers to the student's and teacher's embeddings respectively, while $W_e$ has the same role as $W_h$.
 \end{itemize}
 In this work, $W_h$ and $W_e$ were not treated as single matrices, but a separate linear projection $W^{(m)}$ for each matched representation has been learned.
