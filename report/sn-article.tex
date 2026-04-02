@@ -24,6 +24,8 @@
 
 % --- Gestione Autori e Affiliazioni ---
 \usepackage{authblk}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{amsmath}
 
 \setlist[itemize]{nosep,leftmargin=*}
 
@@ -166,6 +168,40 @@ During this phase, only prediction layer distillation is performed in order to a
 L_{pred} = CE (z^T/T, z^S/T)
 \end{equation}
 However, by introducing the concept of imperfect teachers, it is possible to rewrite the loss by also introducing hard labels (ground truth) and weights for both soft and hard labels, so that the student learns from the teacher when the teacher produces correct predictions and learns to trust the teacher less when the teacher produces incorrect predictions.
+
+
+
+
+\begin{algorithm}[H]
+\SetAlgoLined
+\DontPrintSemicolon
+\KwIn{Review text $R$}
+\KwOut{Token sequence $T_{final}$ (max 512 tokens)}
+\BlankLine
+\tcp{Tokenize text using the BERT vocabulary}
+$T \leftarrow \text{Tokenize}(R)$\;
+\BlankLine
+\tcp{Add special tokens}
+$T_{spec} \leftarrow [\text{CLS}] \oplus T \oplus [\text{SEP}]$\;
+$N \leftarrow \text{Length}(T_{spec})$\;
+\BlankLine
+\eIf{$N > 512$}{
+    \tcp{Retain the first 128 tokens after [CLS]}
+    $T_{head} \leftarrow \text{first } 128 \text{ tokens of } T$\;
+    \tcp{Retain the last 382 tokens before [SEP]}
+    $T_{tail} \leftarrow \text{last } 382 \text{ tokens of } T$\;
+    \tcp{Concatenate for exactly 512 tokens}
+    $T_{final} \leftarrow [\text{CLS}] \oplus T_{head} \oplus T_{tail} \oplus [\text{SEP}]$\;
+}{
+    \tcp{Keep natural length, to be dynamically padded at batch time}
+    $T_{final} \leftarrow T_{spec}$\;
+}
+\BlankLine
+\Return{$T_{final}$}
+\caption{Head+Tail Truncation Strategy for BERT}
+\label{algo:head_tail}
+\end{algorithm}
+
 
 The prediction layer loss implemented in this work has been the following:
 \begin{equation}

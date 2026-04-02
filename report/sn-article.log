@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.2)  1 APR 2026 10:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.2)  2 APR 2026 16:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -314,26 +314,116 @@ Package: authblk 2001/02/27 1.3 (PWD)
 \c@Maxaffil=\count327
 \c@authors=\count328
 \c@affil=\count329
+) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count330
+\algocf@hangindent=\skip68
+ (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count331
+) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip69
+\skiplinenumber=\skip70
+\skiprule=\skip71
+\skiphlne=\skip72
+\skiptext=\skip73
+\skiplength=\skip74
+\algomargin=\skip75
+\skipalgocfslide=\skip76
+\algowidth=\dimen196
+\inoutsize=\dimen197
+\inoutindent=\dimen198
+\interspacetitleruled=\dimen199
+\interspacealgoruled=\dimen256
+\interspacetitleboxruled=\dimen257
+\algocf@ruledwidth=\skip77
+\algocf@inoutbox=\box63
+\algocf@inputbox=\box64
+\AlCapSkip=\skip78
+\AlCapHSkip=\skip79
+\algoskipindent=\skip80
+\algocf@nlbox=\box65
+\algocf@hangingbox=\box66
+\algocf@untilbox=\box67
+\algocf@skipuntil=\skip81
+\algocf@capbox=\box68
+\algocf@lcaptionbox=\skip82
+\algoheightruledefault=\skip83
+\algoheightrule=\skip84
+\algotitleheightruledefault=\skip85
+\algotitleheightrule=\skip86
+\c@algocfline=\count332
+\c@algocfproc=\count333
+\c@algocf=\count334
+\algocf@algoframe=\box69
+\algocf@algobox=\box70
+
+
+C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty:2746: LaTeX Error: Command \algorithm already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2746 }
+        %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty:2754: LaTeX Error: Command \algorithm* already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2754 }
+        %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e.sty:2761: LaTeX Error: Command \listofalgorithms already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2761 }
+        %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count330
+\l__color_backend_stack_int=\count335
 ) (sn-article.aux)
 \openout1 = `sn-article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -371,16 +461,16 @@ LaTeX Font Info:    ... okay on input line 39.
 
 (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count331
-\scratchdimen=\dimen196
-\scratchbox=\box63
-\nofMPsegments=\count332
-\nofMParguments=\count333
+\scratchcounter=\count336
+\scratchdimen=\dimen258
+\scratchbox=\box71
+\nofMPsegments=\count337
+\nofMParguments=\count338
 \everyMPshowfont=\toks42
-\MPscratchCnt=\count334
-\MPscratchDim=\dimen197
-\MPnumerator=\count335
-\makeMPintoPDFobject=\count336
+\MPscratchCnt=\count339
+\MPscratchDim=\dimen259
+\MPnumerator=\count340
+\makeMPintoPDFobject=\count341
 \everyMPtoPDFconversion=\toks43
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -388,13 +478,13 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \microtypecontext on input line 39.
-Package microtype Info: Applying patch `item' on input line 39.
-Package microtype Info: Applying patch `toc' on input line 39.
-Package microtype Info: Applying patch `eqnum' on input line 39.
-Package microtype Info: Applying patch `footnote' on input line 39.
-Package microtype Info: Applying patch `verbatim' on input line 39.
-LaTeX Info: Redefining \microtypesetup on input line 39.
+LaTeX Info: Redefining \microtypecontext on input line 41.
+Package microtype Info: Applying patch `item' on input line 41.
+Package microtype Info: Applying patch `toc' on input line 41.
+Package microtype Info: Applying patch `eqnum' on input line 41.
+Package microtype Info: Applying patch `footnote' on input line 41.
+Package microtype Info: Applying patch `verbatim' on input line 41.
+LaTeX Info: Redefining \microtypesetup on input line 41.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -408,30 +498,71 @@ Package microtype Info: No adjustment of character kerning.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-\c@lstlisting=\count337
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+\c@lstlisting=\count342
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
+LaTeX Warning: Citation `jiao2020tinybertdistillingbertnatural' on page 1 undefined on input line 68.
+
+
+
 [1
 
 {C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 
+LaTeX Warning: Citation `hinton2015distillingknowledgeneuralnetwork' on page 2 undefined on input line 72.
+
+
+LaTeX Warning: Citation `jiao2020tinybertdistillingbertnatural' on page 2 undefined on input line 73.
+
+
+LaTeX Warning: Citation `ji2020knowledgedistillationwideneural' on page 2 undefined on input line 74.
+
+
+LaTeX Warning: Citation `sun2020finetuneberttextclassification' on page 2 undefined on input line 88.
+
+
+LaTeX Warning: Citation `misra2019imdb' on page 2 undefined on input line 98.
+
+
+
 [2]
+
+LaTeX Warning: Citation `sun2020finetuneberttextclassification' on page 3 undefined on input line 100.
+
+
+LaTeX Warning: Citation `DBLP:journals/corr/abs-1810-04805' on page 3 undefined on input line 102.
+
+
+LaTeX Warning: Citation `jiao2020tinybertdistillingbertnatural' on page 3 undefined on input line 102.
+
+
+LaTeX Warning: Citation `jiao2020tinybertdistillingbertnatural' on page 3 undefined on input line 102.
+
+
+LaTeX Warning: Reference `tab:models_parameters' on page 3 undefined on input line 102.
+
+
+LaTeX Warning: Citation `sun2020finetuneberttextclassification' on page 3 undefined on input line 129.
+
 <metrics_teacher_barchart.png, id=16, 758.835pt x 433.62pt>
 File: metrics_teacher_barchart.png Graphic file (type png)
 <use metrics_teacher_barchart.png>
-Package pdftex.def Info: metrics_teacher_barchart.png  used on input line 132.
+Package pdftex.def Info: metrics_teacher_barchart.png  used on input line 134.
 (pdftex.def)             Requested size: 318.66948pt x 182.0993pt.
+
+LaTeX Warning: Reference `fig:metrics_finetuning' on page 3 undefined on input line 138.
+
 
 
 [3]
@@ -440,38 +571,52 @@ Package pdftex.def Info: metrics_teacher_barchart.png  used on input line 132.
 <confusion_matrices_absolute.png, id=31, 650.43pt x 332.442pt>
 File: confusion_matrices_absolute.png Graphic file (type png)
 <use confusion_matrices_absolute.png>
-Package pdftex.def Info: confusion_matrices_absolute.png  used on input line 194.
+Package pdftex.def Info: confusion_matrices_absolute.png  used on input line 230.
 (pdftex.def)             Requested size: 318.66948pt x 162.8777pt.
 
 
-LaTeX Warning: Reference `fig:performance_bars' on page 5 undefined on input line 198.
+LaTeX Warning: Reference `fig:confusion_matrices' on page 5 undefined on input line 234.
+
+
+LaTeX Warning: Reference `fig:performance_bars' on page 5 undefined on input line 234.
 
 
 
-[5 <./confusion_matrices_absolute.png>]
-<efficiency_tradeoff.png, id=36, 1020.16331pt x 442.00333pt>
+[5]
+<efficiency_tradeoff.png, id=37, 1020.16331pt x 442.00333pt>
 File: efficiency_tradeoff.png Graphic file (type png)
 <use efficiency_tradeoff.png>
-Package pdftex.def Info: efficiency_tradeoff.png  used on input line 202.
+Package pdftex.def Info: efficiency_tradeoff.png  used on input line 238.
 (pdftex.def)             Requested size: 409.71692pt x 177.5131pt.
-<pca_embeddings.png, id=37, 1003.8303pt x 428.5611pt>
+
+
+LaTeX Warning: Reference `fig:scatters_tradeoffs' on page 6 undefined on input line 242.
+
+
+
+[6 <./confusion_matrices_absolute.png> <./efficiency_tradeoff.png>]
+<pca_embeddings.png, id=43, 1003.8303pt x 428.5611pt>
 File: pca_embeddings.png Graphic file (type png)
 <use pca_embeddings.png>
-Package pdftex.def Info: pca_embeddings.png  used on input line 213.
+Package pdftex.def Info: pca_embeddings.png  used on input line 249.
 (pdftex.def)             Requested size: 409.71692pt x 174.91992pt.
 
 
-[6 <./efficiency_tradeoff.png>]
-<attn_heatmaps.png, id=42, 1000.9395pt x 353.4003pt>
+LaTeX Warning: Reference `fig:pca_embeddings' on page 7 undefined on input line 253.
+
+<attn_heatmaps.png, id=44, 1000.9395pt x 353.4003pt>
 File: attn_heatmaps.png Graphic file (type png)
 <use attn_heatmaps.png>
-Package pdftex.def Info: attn_heatmaps.png  used on input line 223.
+Package pdftex.def Info: attn_heatmaps.png  used on input line 259.
 (pdftex.def)             Requested size: 409.71692pt x 144.65778pt.
- (sn-article.bbl
 
-[7 <./pca_embeddings.png> <./attn_heatmaps.png>])
+LaTeX Warning: Reference `fig:attn_heatmaps' on page 7 undefined on input line 263.
 
-[8] (sn-article.aux)
+
+
+[7 <./pca_embeddings.png>] (sn-article.bbl)
+
+[8 <./attn_heatmaps.png>] (sn-article.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
@@ -480,19 +625,22 @@ L3 programming layer <2025-08-13>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 9158 strings out of 468133
- 140962 string characters out of 5430712
- 601684 words of memory out of 5000000
- 37505 multiletter control sequences out of 15000+600000
- 641874 words of font info for 159 fonts, out of 8000000 for 9000
+ 10152 strings out of 468133
+ 158167 string characters out of 5430712
+ 625901 words of memory out of 5000000
+ 38478 multiletter control sequences out of 15000+600000
+ 642524 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,17n,65p,1450b,422s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on sn-article.pdf (8 pages, 2471998 bytes).
+ <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on sn-article.pdf (8 pages, 2501932 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
+ 120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 32794 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 35354 words of extra memory for PDF output out of 35830 (max. 10000000)
 
