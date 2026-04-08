@@ -11,9 +11,6 @@
 \usepackage{xcolor}
 \usepackage{microtype}
 \usepackage{booktabs}
-\usepackage{algorithm}
-\usepackage{algorithmicx}
-\usepackage{algpseudocode}
 \usepackage{listings}
 \usepackage{verbatim}
 \usepackage{makecell}
@@ -37,6 +34,7 @@
 \widowpenalty=100
 \clubpenalty=100
 \displaywidowpenalty=50
+
 
 \begin{document}
 
@@ -171,7 +169,7 @@ However, by introducing the concept of imperfect teachers, it is possible to rew
 
 
 
-
+\begin{comment}
 \begin{algorithm}[H]
 \SetAlgoLined
 \DontPrintSemicolon
@@ -201,7 +199,7 @@ $N \leftarrow \text{Length}(T_{spec})$\;
 \caption{Head+Tail Truncation Strategy for BERT}
 \label{algo:head_tail}
 \end{algorithm}
-
+\end{comment}
 
 The prediction layer loss implemented in this work has been the following:
 \begin{equation}

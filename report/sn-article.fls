@@ -69,16 +69,6 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\microtype\microtype
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\microtype\microtype.cfg
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithm.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithms\algorithm.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithmicx\algpseudocode.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\listings\listings.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstpatch.sty
@@ -104,6 +94,8 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\preprint\authblk.st
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\preprint\authblk.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithm2e\algorithm2e.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\algorithm2e\algorithm2e.sty
+INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
+INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\ifoddpage\ifoddpage.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\ifoddpage\ifoddpage.sty
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex\latex\tools\xspace.sty
@@ -168,11 +160,11 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tf
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
 OUTPUT sn-article.pdf
 INPUT C:\Users\cola0\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
@@ -188,8 +180,6 @@ INPUT .\metrics_teacher_barchart.png
 INPUT .\metrics_teacher_barchart.png
 INPUT .\metrics_teacher_barchart.png
 INPUT .\metrics_teacher_barchart.png
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT .\confusion_matrices_absolute.png
 INPUT .\confusion_matrices_absolute.png
 INPUT .\confusion_matrices_absolute.png
@@ -228,8 +218,6 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
@@ -250,7 +238,5 @@ INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
-INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
 INPUT C:\Users\cola0\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
