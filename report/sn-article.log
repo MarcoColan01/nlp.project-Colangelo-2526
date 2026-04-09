@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.2)  8 APR 2026 14:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.2)  9 APR 2026 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -460,57 +460,54 @@ File: confusion_matrices_absolute.png Graphic file (type png)
 <use confusion_matrices_absolute.png>
 Package pdftex.def Info: confusion_matrices_absolute.png  used on input line 228.
 (pdftex.def)             Requested size: 318.66948pt x 162.8777pt.
-
-
-LaTeX Warning: Reference `fig:performance_bars' on page 5 undefined on input line 232.
-
+<metrics_barchart.png, id=32, 859.2903pt x 426.393pt>
+File: metrics_barchart.png Graphic file (type png)
+<use metrics_barchart.png>
+Package pdftex.def Info: metrics_barchart.png  used on input line 234.
+(pdftex.def)             Requested size: 318.66948pt x 158.12729pt.
 
 
 [5 <./confusion_matrices_absolute.png>]
-<efficiency_tradeoff.png, id=36, 1020.16331pt x 442.00333pt>
+<efficiency_tradeoff.png, id=37, 1020.16331pt x 442.00333pt>
 File: efficiency_tradeoff.png Graphic file (type png)
 <use efficiency_tradeoff.png>
-Package pdftex.def Info: efficiency_tradeoff.png  used on input line 236.
+Package pdftex.def Info: efficiency_tradeoff.png  used on input line 242.
 (pdftex.def)             Requested size: 409.71692pt x 177.5131pt.
-<pca_embeddings.png, id=37, 1003.8303pt x 428.5611pt>
+
+
+[6 <./metrics_barchart.png> <./efficiency_tradeoff.png>]
+<pca_embeddings.png, id=43, 1003.8303pt x 428.5611pt>
 File: pca_embeddings.png Graphic file (type png)
 <use pca_embeddings.png>
-Package pdftex.def Info: pca_embeddings.png  used on input line 247.
+Package pdftex.def Info: pca_embeddings.png  used on input line 253.
 (pdftex.def)             Requested size: 409.71692pt x 174.91992pt.
-
-
-[6 <./efficiency_tradeoff.png>]
-<attn_heatmaps.png, id=42, 1000.9395pt x 353.4003pt>
+<attn_heatmaps.png, id=44, 1000.9395pt x 353.4003pt>
 File: attn_heatmaps.png Graphic file (type png)
 <use attn_heatmaps.png>
-Package pdftex.def Info: attn_heatmaps.png  used on input line 257.
+Package pdftex.def Info: attn_heatmaps.png  used on input line 263.
 (pdftex.def)             Requested size: 409.71692pt x 144.65778pt.
- (sn-article.bbl
 
-[7 <./pca_embeddings.png> <./attn_heatmaps.png>])
+
+[7 <./pca_embeddings.png> <./attn_heatmaps.png>] (sn-article.bbl)
 
 [8] (sn-article.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 9540 strings out of 468133
- 148143 string characters out of 5430712
- 616720 words of memory out of 5000000
- 37889 multiletter control sequences out of 15000+600000
- 641874 words of font info for 159 fonts, out of 8000000 for 9000
+ 9549 strings out of 468133
+ 148347 string characters out of 5430712
+ 616742 words of memory out of 5000000
+ 37896 multiletter control sequences out of 15000+600000
+ 641925 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,17n,65p,1450b,418s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,17n,65p,1447b,418s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on sn-article.pdf (8 pages, 2471994 bytes).
+Output written on sn-article.pdf (8 pages, 2506174 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
+ 112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 32794 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 32799 words of extra memory for PDF output out of 35830 (max. 10000000)
 
