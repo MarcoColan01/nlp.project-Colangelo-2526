@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.2)  9 APR 2026 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  10 APR 2026 16:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex
-(c:/Users/cola0/Desktop/nlp.project-colangelo-2526/report/sn-article.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+**c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex
+(c:/Users/cola0/Desktop/nlp.project-Colangelo-2526/report/sn-article.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
 (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
@@ -56,7 +56,7 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen157
 \Gin@req@width=\dimen158
@@ -67,7 +67,7 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@dima=\skip52
 \bigstrutjot=\dimen159
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
@@ -128,8 +128,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip54
 \multlinetaggap=\skip55
 \mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
@@ -167,32 +167,32 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
-Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
+Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count299
 )
 \MT@toks=\toks30
 \MT@tempbox=\box55
 \MT@count=\count300
-LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
-LaTeX Info: Redefining \leftprotrusion on input line 1088.
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
+LaTeX Info: Redefining \leftprotrusion on input line 1085.
 \MT@prot@toks=\toks31
-LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \rightprotrusion on input line 1104.
 LaTeX Info: Redefining \textls on input line 1449.
 \MT@outer@kern=\dimen169
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
 \MT@listname@count=\count301
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdftex.def
-File: microtype-pdftex.def 2025/07/09 v3.2b Definitions specific to pdftex (RS)
+File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 944.
 LaTeX Info: Redefining \lslig on input line 944.
 \MT@outer@space=\skip59
 )
 Package microtype Info: Loading configuration file microtype.cfg.
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
-File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
+File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
@@ -228,17 +228,24 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \lst@lineno=\count311
 \lst@maxwidth=\dimen186
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 \c@lstnumber=\count312
 \lst@skipnumbers=\count313
 \lst@framebox=\box57
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
+File: listings.cfg 2025/11/14 1.11b listings configuration
 ))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks33
 \verbatim@line=\toks34
@@ -246,7 +253,7 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
  (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen187
 \ar@mcellbox=\box58
 \extrarowheight=\dimen188
@@ -333,7 +340,7 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box67
 \algocf@algobox=\box68
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count326
 ) (sn-article.aux)
 \openout1 = `sn-article.aux'.
@@ -438,76 +445,65 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\cola0\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
+) [1
 
-[1
-
-{C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-
-[2]
+{C:/Users/cola0/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 <metrics_teacher_barchart.png, id=16, 758.835pt x 433.62pt>
 File: metrics_teacher_barchart.png Graphic file (type png)
 <use metrics_teacher_barchart.png>
-Package pdftex.def Info: metrics_teacher_barchart.png  used on input line 132.
+Package pdftex.def Info: metrics_teacher_barchart.png  used on input line 131.
 (pdftex.def)             Requested size: 318.66948pt x 182.0993pt.
-
-
-[3]
-
-[4 <./metrics_teacher_barchart.png>]
+ [3] [4 <./metrics_teacher_barchart.png>]
 <confusion_matrices_absolute.png, id=31, 650.43pt x 332.442pt>
 File: confusion_matrices_absolute.png Graphic file (type png)
 <use confusion_matrices_absolute.png>
-Package pdftex.def Info: confusion_matrices_absolute.png  used on input line 228.
+Package pdftex.def Info: confusion_matrices_absolute.png  used on input line 193.
 (pdftex.def)             Requested size: 318.66948pt x 162.8777pt.
 <metrics_barchart.png, id=32, 859.2903pt x 426.393pt>
 File: metrics_barchart.png Graphic file (type png)
 <use metrics_barchart.png>
-Package pdftex.def Info: metrics_barchart.png  used on input line 234.
+Package pdftex.def Info: metrics_barchart.png  used on input line 199.
 (pdftex.def)             Requested size: 318.66948pt x 158.12729pt.
-
-
-[5 <./confusion_matrices_absolute.png>]
+ [5 <./confusion_matrices_absolute.png>]
 <efficiency_tradeoff.png, id=37, 1020.16331pt x 442.00333pt>
 File: efficiency_tradeoff.png Graphic file (type png)
 <use efficiency_tradeoff.png>
-Package pdftex.def Info: efficiency_tradeoff.png  used on input line 242.
+Package pdftex.def Info: efficiency_tradeoff.png  used on input line 207.
 (pdftex.def)             Requested size: 409.71692pt x 177.5131pt.
-
-
-[6 <./metrics_barchart.png> <./efficiency_tradeoff.png>]
+ [6 <./metrics_barchart.png> <./efficiency_tradeoff.png>]
 <pca_embeddings.png, id=43, 1003.8303pt x 428.5611pt>
 File: pca_embeddings.png Graphic file (type png)
 <use pca_embeddings.png>
-Package pdftex.def Info: pca_embeddings.png  used on input line 253.
+Package pdftex.def Info: pca_embeddings.png  used on input line 218.
 (pdftex.def)             Requested size: 409.71692pt x 174.91992pt.
-<attn_heatmaps.png, id=44, 1000.9395pt x 353.4003pt>
-File: attn_heatmaps.png Graphic file (type png)
-<use attn_heatmaps.png>
-Package pdftex.def Info: attn_heatmaps.png  used on input line 263.
-(pdftex.def)             Requested size: 409.71692pt x 144.65778pt.
+<multihead_diagnostic_matrices_highlighted.png, id=44, 1445.4pt x 722.7pt>
+File: multihead_diagnostic_matrices_highlighted.png Graphic file (type png)
+<use multihead_diagnostic_matrices_highlighted.png>
+Package pdftex.def Info: multihead_diagnostic_matrices_highlighted.png  used on input line 228.
+(pdftex.def)             Requested size: 500.77129pt x 250.37938pt.
 
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 228--229
+ [][] 
+ []
 
-[7 <./pca_embeddings.png> <./attn_heatmaps.png>] (sn-article.bbl)
-
-[8] (sn-article.aux)
+[7 <./pca_embeddings.png>] [8 <./multihead_diagnostic_matrices_highlighted.png>] [9] (sn-article.bbl) [10] (sn-article.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9549 strings out of 468133
- 148347 string characters out of 5430712
- 616742 words of memory out of 5000000
- 37896 multiletter control sequences out of 15000+600000
- 641925 words of font info for 160 fonts, out of 8000000 for 9000
+ 9552 strings out of 467866
+ 148646 string characters out of 5418326
+ 619899 words of memory out of 5000000
+ 38161 multiletter control sequences out of 15000+600000
+ 643091 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,17n,65p,1447b,418s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on sn-article.pdf (8 pages, 2506174 bytes).
+ 57i,18n,65p,1447b,432s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on sn-article.pdf (10 pages, 4130421 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
+ 123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 32799 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 33311 words of extra memory for PDF output out of 35830 (max. 10000000)
 

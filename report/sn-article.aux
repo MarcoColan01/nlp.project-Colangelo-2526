@@ -10,22 +10,23 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Related Work}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Research question and methodology}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Proposed approach}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}Experimental Results}{2}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Data and Preprocessing}{2}{}\protected@file@percent }
 \citation{sun2020finetuneberttextclassification}
 \citation{DBLP:journals/corr/abs-1810-04805}
 \citation{jiao2020tinybertdistillingbertnatural}
 \citation{jiao2020tinybertdistillingbertnatural}
 \citation{sun2020finetuneberttextclassification}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Experimental Results}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Data and Preprocessing}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Teacher and Student Models Architectures}{3}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Parameters of the teacher and student models.}}{3}{}\protected@file@percent }
 \newlabel{tab:models_parameters}{{1}{3}{}{table.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}BERT Fine Tuning for Spoiler Detection}{3}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Task-Specific Distillation}{3}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Evaluation metrics: BERT-base without and with fine tuning.}}{4}{}\protected@file@percent }
 \newlabel{fig:metrics_finetuning}{{1}{4}{}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Task-Specific Distillation}{4}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}Phase 1: Intermediate Layers Distillation}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Phase 2: Prediction Layer Distillation}{4}{}\protected@file@percent }
+\citation{ji2020knowledgedistillationwideneural}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}Phase 2: Prediction Layer Distillation}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Results of distillation}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.1}Performance Drop}{5}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Confusion matrices: teacher fine tuned vs student distilled}}{5}{}\protected@file@percent }
@@ -35,11 +36,16 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.2}Computational Savings}{6}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Scatter plots that compare PR-AUC and inference time (right) and PR-AUC and number of parameters (left) for all the models.}}{6}{}\protected@file@percent }
 \newlabel{fig:scatters_tradeoffs}{{4}{6}{}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Interpretability}{7}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Inserisci qui la didascalia della tua figura.}}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.5.3}Models Alignment \& Interpretability}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 2D PCA Embeddings analysis}}{7}{}\protected@file@percent }
 \newlabel{fig:pca_embeddings}{{5}{7}{}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Inserisci qui la didascalia della tua figura.}}{7}{}\protected@file@percent }
-\newlabel{fig:attn_heatmaps}{{6}{7}{}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Multi-head Attention analysis through heatmaps}}{8}{}\protected@file@percent }
+\newlabel{fig:attn_heatmaps}{{6}{8}{}{figure.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Pearson similarity of multi-head attention metrics (Matched and Unmatched)}}{8}{}\protected@file@percent }
+\newlabel{tab:pearson_alignment}{{2}{8}{}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusions}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Critical Discussion}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Future Works}{9}{}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{sn-bibliography}
 \bibcite{DBLP:journals/corr/abs-1810-04805}{1}
@@ -48,5 +54,4 @@
 \bibcite{jiao2020tinybertdistillingbertnatural}{4}
 \bibcite{misra2019imdb}{5}
 \bibcite{sun2020finetuneberttextclassification}{6}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusions}{8}{}\protected@file@percent }
-\gdef \@abspage@last{8}
+\gdef \@abspage@last{10}

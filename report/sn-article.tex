@@ -87,13 +87,13 @@ The proposed approach is based on the following pipeline.
 \item \textbf{Teacher Fine Tuning:} layer-wise learning rate decay was used to avoid catastrophic forgetting. Also, weighted cross-entropy loss was used due to the dataset's imbalance.
 \item \textbf{Task-Specific Distillation:} this phase is divided into two subphases. In the first, intermediate-layer distillation is performed, while in the second, prediction-layer distillation is performed.
 \item \textbf{Evaluation and computational saving metrics:} some standard plots such as bar charts of evaluation metrics and confusion matrix have been constructed, as well as other plots to evaluate the computational savings of the student model compared to the teacher model.
-\item \textbf{Embeddings and Attention Matrices exploration:} in order to see if the student's internal representations actually aligned with those of the teacher, techniques such as PCA on the embeddings of both models and plots of the attention matrices using heatmaps were used.
+\item \textbf{Embeddings and Multi-Head Attention exploration:} in order to assess whether the student’s internal representations aligned with those of the teacher, PCA was applied to the embeddings of both models and a dataset-level diagnostic analysis of multi-head attention was performed using head-wise metrics visualized through heatmaps.
 \end{itemize}
 
 %The Experimental Results provides an overview of the dataset used for experiments, the metrics used for evaluating performances, and the experimental methodology. Presents experimental results as plots and/or tables.
 \section{Experimental Results} 
 \subsection{Data and Preprocessing}
-The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on Kaggle. This dataset (in JSON format) contains over 500,000 IMDb movie reviews, each with a boolean label that marks it as a spoiler or not. I choose to extract a random sample of 300,000 total reviews, then divided it into training (80\%), validation and test sets (10\% each). The dataset split was performed by grouping samples according to the \textit{movie\_id} attribute, ensuring that reviews of the same film do not appear in different splits and thus preventing data leakage.
+The dataset used was the IMDB Spoiler Dataset \cite{misra2019imdb}, available on Kaggle. This dataset contains over 500,000 reviews, each with a boolean label that marks it as a spoiler or not. I choose to extract a random sample of 300,000 total reviews, then divided it into training (80\%), validation and test sets (10\% each). The dataset split was performed by grouping samples according to the \textit{movie\_id} attribute, ensuring that reviews of the same film do not appear in different splits and thus preventing data leakage.
 
 To overcome the 512 maximum token limit with BERT, a solution based on the head+tail of the review text was used \cite{sun2020finetuneberttextclassification}: the text is first tokenized using the BERT vocabulary, also adding the special tokens [CLS] at the start and [SEP] at the end. If the resulting token list is longer than 512, only the first 128 tokens after [CLS] and the last 382 before [SEP] are retained; otherwise the sequence keeps its natural length and is padded dynamically at batch time. Each row, saved in a .parquet file for efficiency, contains \textit{input\_ids}, \textit{attention\_mask} and \textit{token\_type\_ids}.
 \subsection{Teacher and Student Models Architectures}
@@ -123,8 +123,7 @@ The hyperparameters used for teacher fine tuning were the following:
 \begin{itemize}
 \item Epochs: 3
 \item Batch size: 24 (physical dimension = 8 and gradient accumulation = 3)
-\item Warmup ratio: 0.03
-\item Optimizer: AdamW with weight decay of 0.01 and a custom learning rate implemented as Layer-wise Learning Rate Decay (base LR = $2e-5$, decay factor = $0.95$) to give a lower LR to the lower layers of the network. This, for BERT fine tuning, can overcome the catastrophic forgetting problem. \cite{sun2020finetuneberttextclassification}
+\item Optimizer: AdamW with weight decay of 0.01 and a custom learning rate implemented as Layer-wise Learning Rate Decay (base LR = $2e-5$, decay factor = $0.95$) to give a lower LR to the lower layers of the network. This, for BERT fine tuning for spoiler detection, can overcome the catastrophic forgetting problem. \cite{sun2020finetuneberttextclassification}
 \item Metric for best model: PR-AUC on validation set. This choice is justified by the imbalance of the dataset and the chosen task.
 \end{itemize}
 \begin{figure}[htbp]
@@ -165,41 +164,7 @@ During this phase, only prediction layer distillation is performed in order to a
 \begin{equation}
 L_{pred} = CE (z^T/T, z^S/T)
 \end{equation}
-However, by introducing the concept of imperfect teachers, it is possible to rewrite the loss by also introducing hard labels (ground truth) and weights for both soft and hard labels, so that the student learns from the teacher when the teacher produces correct predictions and learns to trust the teacher less when the teacher produces incorrect predictions.
-
-
-
-\begin{comment}
-\begin{algorithm}[H]
-\SetAlgoLined
-\DontPrintSemicolon
-\KwIn{Review text $R$}
-\KwOut{Token sequence $T_{final}$ (max 512 tokens)}
-\BlankLine
-\tcp{Tokenize text using the BERT vocabulary}
-$T \leftarrow \text{Tokenize}(R)$\;
-\BlankLine
-\tcp{Add special tokens}
-$T_{spec} \leftarrow [\text{CLS}] \oplus T \oplus [\text{SEP}]$\;
-$N \leftarrow \text{Length}(T_{spec})$\;
-\BlankLine
-\eIf{$N > 512$}{
-    \tcp{Retain the first 128 tokens after [CLS]}
-    $T_{head} \leftarrow \text{first } 128 \text{ tokens of } T$\;
-    \tcp{Retain the last 382 tokens before [SEP]}
-    $T_{tail} \leftarrow \text{last } 382 \text{ tokens of } T$\;
-    \tcp{Concatenate for exactly 512 tokens}
-    $T_{final} \leftarrow [\text{CLS}] \oplus T_{head} \oplus T_{tail} \oplus [\text{SEP}]$\;
-}{
-    \tcp{Keep natural length, to be dynamically padded at batch time}
-    $T_{final} \leftarrow T_{spec}$\;
-}
-\BlankLine
-\Return{$T_{final}$}
-\caption{Head+Tail Truncation Strategy for BERT}
-\label{algo:head_tail}
-\end{algorithm}
-\end{comment}
+However, by introducing the concept of imperfect teacher \cite{ji2020knowledgedistillationwideneural}, it is possible to rewrite the loss by also introducing hard labels (ground truth) and weights for both soft and hard labels, so that the student learns from the teacher when the teacher produces correct predictions and learns to trust the teacher less when the teacher produces incorrect predictions.
 
 The prediction layer loss implemented in this work has been the following:
 \begin{equation}
@@ -244,31 +209,62 @@ Figure \ref{fig:confusion_matrices} and Figure \ref{fig:metrics_barchart} show t
     \label{fig:scatters_tradeoffs} 
 \end{figure}
 Figure \ref{fig:scatters_tradeoffs} shows two scatter plots: the first one illustrates the relationship between PR-AUC and inference time (ms per sample), while the second one shows the relationship between PR-AUC and model size (\# of parameters). Both graphs highlight that the distilled student lies in a substantially more favorable region of the efficiency--performance space than the teacher base model and the COTS student. In particular, compared to the fine-tuned teacher, it reduces inference time by 77.81\% and the number of parameters by 86.76\%, while remaining close in predictive performance. Therefore, the distilled student represents the best efficiency--performance compromise among the compared models.
-\subsubsection{Interpretability}
+\subsubsection{Models Alignment \& Interpretability}
 
 \textbf{Embeddings analysis}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{pca_embeddings.png}
-    \caption{Inserisci qui la didascalia della tua figura.}
+    \caption{2D PCA Embeddings analysis}
     \label{fig:pca_embeddings} 
 \end{figure}
 To qualitatively assess the alignment of internal representations after the intermediate-layer distillation phase, the last-layer hidden states of the fine-tuned teacher and of the phase-1 student were compared on a balanced subset of the test set. Since the student hidden size is smaller than the teacher hidden size, the student representations were first projected into the teacher space through the learned linear projection used during distillation, and then mean pooling was applied over the token dimension. A 2D PCA was fitted in the teacher space and both teacher and student representations were projected onto the same axes. Figure \ref{fig:pca_embeddings} shows the resulting plots. The two distributions exhibit a strong overlap for both the spoiler and no-spoiler classes, while the average cosine similarity between teacher and student representations remains very high in both cases (around 0.96). Although PCA only provides a qualitative low-dimensional projection, these results suggest that the student learned to organize examples in a representation space that is highly consistent with that of the teacher.
 
-\textbf{Attention heatmap analysis}
+\textbf{Multi-head Attention analysis}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{attn_heatmaps.png}
-    \caption{Inserisci qui la didascalia della tua figura.}
+    \includegraphics[width=1.1\textwidth]{multihead_diagnostic_matrices_highlighted.png}
+    \caption{Multi-head Attention analysis through heatmaps}
     \label{fig:attn_heatmaps} 
 \end{figure}
-To complement the embedding-level analysis, a qualitative inspection of attention patterns was performed on a manually selected challenging review containing the token \textit{dies}, which is typically associated with spoiler-like content. For visualization purposes, the attention distributions of the last teacher layer and last student layer were averaged across heads and restricted to a local window centered around the target token. Figure \ref{fig:attn_heatmaps} shows the resulting heatmaps. The two attention patterns exhibit a very similar structure, with high cosine similarity and very small mean squared error, and the overlap among the top-attended positions is also high. This indicates that the student focuses on contextual cues that are largely consistent with those used by the teacher, instead of reacting only to the presence of a potentially misleading keyword. The result should be interpreted as qualitative evidence on a single example, but it still supports the claim that intermediate-layer distillation helped the student inherit not only the teacher's predictions, but also part of its internal contextualization behavior.
+To complement the embedding-level analysis, a study of multi-head attention was conducted to assess whether the distilled student preserves part of the teacher’s internal attention behavior. Instead of focusing on a single manually selected example, four head-wise diagnostics were computed over a random subset of the test set: attention entropy (degree of concentration of each head), mean attention span (average distance between attended tokens), sequential focus (attention to adjacent tokens), and special-token focus (attention to \texttt{[CLS]} and \texttt{[SEP]}). The analysis compares the teacher layers selected during distillation (3, 6, 9, 12) with the corresponding student layers (1, 2, 3, 4), following the same layer-mapping strategy used in intermediate-layer distillation.
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Pearson similarity of multi-head attention metrics (Matched and Unmatched)}
+\vspace{0.2cm}
+\label{tab:pearson_alignment}
+\begin{tabularx}{\textwidth}{|l| >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X | >{\centering\arraybackslash}X |}
+\hline
+Type & Entropy & \makecell{Sequential \\ Focus} & Span & \makecell{Special \\ Token Focus} \\
+\hline
+Matched & 0.899 & 0.942 & 0.941 & 0.895 \\
+Unmatched  & 0.131  & 0.051 & 0.019 & 0.054 \\
+\hline
+\end{tabularx}
+\end{table}
+Figure \ref{fig:attn_heatmaps} shows that the student reproduces several functional patterns of the matched teacher layers, with particularly clear similarities in sequential focus and special-token sensitivity. To support this visual evidence, head-wise Pearson similarity was computed between matched teacher--student pairs and compared against non-corresponding layer pairs. As shown in Table \ref{tab:pearson_alignment}, matched pairs consistently achieve higher similarity than unmatched ones across all metrics. This suggests that the observed agreement is not incidental, but reflects a partial alignment in attention specialization induced by distillation. While this should not be interpreted as proof of identical reasoning or information flow, it provides further evidence that the student inherits not only the teacher’s predictive behavior, but also part of its internal distribution of attention across heads and layers.
 
 
 %Provides a critical discussion on the experimental results and some ideas for future work
 \section{Conclusions}
+
+\subsection{Critical Discussion}
+This work set out to investigate whether a highly compressed language model could preserve not only the predictive performance of a larger teacher, but also part of its internal behavior in the challenging task of spoiler detection. The results suggest that this objective was largely achieved. The distilled TinyBERT student remains close to the fine-tuned BERT teacher, with only a 3.74\% reduction in PR-AUC, while reducing the number of parameters by 86.76\% and the inference time by 77.81\%. This makes the distilled model the best efficiency--performance compromise among the compared systems, and supports the use of task-specific distillation as an effective compression strategy for resource-constrained NLP applications. 
+
+At the same time, the results also highlight some important limitations. First, spoiler detection is intrinsically ambiguous and context-dependent, since the same lexical cues may or may not reveal crucial plot information depending on the review and on the reader’s prior knowledge. In addition, the task is complicated by class imbalance and by the length of IMDb reviews, which required a head+tail truncation strategy to fit BERT’s input limit. While effective, this preprocessing may still discard useful contextual evidence from the middle part of long reviews. For this reason, although the PR-AUC obtained is competitive, it is not yet high enough to consider the problem solved, especially in a real-world setting where false negatives may still expose users to spoilers. This is consistent with the observed slight increase in false negatives and the corresponding drop in recall for the distilled student with respect to the teacher. 
+
+The interpretability analyses provide additional support for the quality of the distillation process, but they should be interpreted with caution. The strong overlap between teacher and student representations in the PCA space, together with the high average cosine similarity, suggests that the student learned a representation geometry close to that of the teacher. Likewise, the multi-head attention diagnostics indicate a partial alignment of attention specialization, since matched teacher--student layer pairs show substantially higher Pearson similarity than unmatched ones across all considered metrics. However, these analyses remain diagnostic rather than causal: they show that the student behaves similarly to the teacher in important respects, but they do not prove that the two models reason in exactly the same way. 
+
+\subsection{Future Works}
+Several directions could extend this work. A first practical step would be to turn the current system into the browser extension originally envisioned in the introduction, so that the distilled model could be evaluated in a realistic user-facing scenario, including latency, memory footprint, and robustness on newly collected reviews. From a modeling perspective, it would also be interesting to explore alternative strategies for handling long reviews, such as hierarchical architectures, long-context transformers, or chunk-based aggregation schemes, in order to reduce the information loss introduced by truncation. 
+
+A second line of future work concerns the distillation procedure itself. Although the proposed approach already combines intermediate-layer alignment with a prediction-layer loss based on soft and hard labels, better results might be obtained by further tuning the layer-mapping strategy, the relative loss weights, the adaptive coefficient $\rho(x)$, or the temperature used in the soft targets. Other promising directions include data augmentation, improved calibration of the final classifier, or curriculum strategies that expose the student to increasingly difficult examples. Such extensions could help close the remaining performance gap, especially on the most ambiguous reviews. 
+
+Finally, the interpretability component could be further strengthened. In this report, attention alignment was studied through head-wise diagnostic metrics, which already provided useful evidence of teacher--student alignment. However, as noted in the diagnostic-attention literature, raw attention alone is not sufficient to fully track how information propagates across layers. Future work could therefore integrate more advanced techniques such as Attention Rollout or Attention Flow, in order to better characterize which parts of a review most influence the final spoiler prediction. Combining these analyses with a real deployment setting would make it possible to evaluate not only whether the student is efficient and accurate, but also whether its decisions remain understandable and trustworthy for end users. 
 
 \bibliographystyle{plain} % O 'ieeetr', 'unsrt', a seconda delle tue preferenze
 \bibliography{sn-bibliography}
