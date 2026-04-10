@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  10 APR 2026 16:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.7)  10 APR 2026 17:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -486,24 +486,34 @@ Overfull \hbox (45.52718pt too wide) in paragraph at lines 228--229
  [][] 
  []
 
-[7 <./pca_embeddings.png>] [8 <./multihead_diagnostic_matrices_highlighted.png>] [9] (sn-article.bbl) [10] (sn-article.aux)
+<shap_tricky.png, id=45, 1388.18625pt x 807.7678pt>
+File: shap_tricky.png Graphic file (type png)
+<use shap_tricky.png>
+Package pdftex.def Info: shap_tricky.png  used on input line 252.
+(pdftex.def)             Requested size: 500.77129pt x 291.3878pt.
+
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 252--253
+ [][] 
+ []
+
+[7 <./pca_embeddings.png>] [8 <./multihead_diagnostic_matrices_highlighted.png>] [9 <./shap_tricky.png>] (sn-article.bbl [10]) [11] (sn-article.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 9552 strings out of 467866
- 148646 string characters out of 5418326
- 619899 words of memory out of 5000000
- 38161 multiletter control sequences out of 15000+600000
- 643091 words of font info for 163 fonts, out of 8000000 for 9000
+ 9562 strings out of 467866
+ 148823 string characters out of 5418326
+ 619921 words of memory out of 5000000
+ 38169 multiletter control sequences out of 15000+600000
+ 643142 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,65p,1447b,432s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\cola0\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/cola0/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on sn-article.pdf (10 pages, 4130421 bytes).
+Output written on sn-article.pdf (11 pages, 4443792 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 33311 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 33316 words of extra memory for PDF output out of 35830 (max. 10000000)
 

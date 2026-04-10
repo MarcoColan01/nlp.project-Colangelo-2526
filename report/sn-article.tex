@@ -247,7 +247,13 @@ Unmatched  & 0.131  & 0.051 & 0.019 & 0.054 \\
 \end{tabularx}
 \end{table}
 Figure \ref{fig:attn_heatmaps} shows that the student reproduces several functional patterns of the matched teacher layers, with particularly clear similarities in sequential focus and special-token sensitivity. To support this visual evidence, head-wise Pearson similarity was computed between matched teacher--student pairs and compared against non-corresponding layer pairs. As shown in Table \ref{tab:pearson_alignment}, matched pairs consistently achieve higher similarity than unmatched ones across all metrics. This suggests that the observed agreement is not incidental, but reflects a partial alignment in attention specialization induced by distillation. While this should not be interpreted as proof of identical reasoning or information flow, it provides further evidence that the student inherits not only the teacher’s predictive behavior, but also part of its internal distribution of attention across heads and layers.
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1.1\textwidth]{shap_tricky.png}
+    \caption{SHAP-based analysis (Label 0 = Spoiler; Label 1 = No Spoiler)}
+    \label{fig:shap} 
+\end{figure}
+To perform some interpretability analysis, a SHAP-based token attribution analysis was performed on a manually selected tricky review that is labeled as no spoiler, even though it contains explicit spoiler-like expressions such as he dies. As shown in Figure \ref{fig:shap}, both models still predicted the spoiler class, However, the two explanations differ in an important way. The fine-tuned teacher spreads positive evidence for the spoiler class across a broader portion of the plot summary, whereas the distilled student concentrates the positive contribution more locally on the most plot-bearing clauses. At the same time, generic evaluative language about acting quality and enjoyment contributes negatively or remains weakly relevant. This makes the student’s error easier to trace to a smaller set of semantically relevant spans, rather than to a diffuse attribution pattern over the whole review. Therefore, although both models fail on this tricky example, the student appears slightly more interpretable in the sense that its decision process is more selective and easier to inspect qualitatively.
 
 %Provides a critical discussion on the experimental results and some ideas for future work
 \section{Conclusions}
