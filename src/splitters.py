@@ -37,10 +37,6 @@ def _group_sample_split(
 
 
 def _score_split_balance(df_full: pd.DataFrame, df_a: pd.DataFrame, df_b: pd.DataFrame, label_col: str) -> float:
-    """
-    Quanto le medie delle label di A e B sono vicine a quella globale.
-    Più basso = meglio.
-    """
     global_mean = df_full[label_col].mean()
     return abs(df_a[label_col].mean() - global_mean) + abs(df_b[label_col].mean() - global_mean)
 
@@ -59,7 +55,6 @@ def split_by_movie_id(
     _check_sizes(cfg)
     rng0 = np.random.default_rng(cfg.seed)
 
-    # 1) split off test
     best = None
     best_score = float("inf")
 
@@ -82,7 +77,6 @@ def split_by_movie_id(
 
     df_rest, df_test = best
 
-    # 2) split rest into train/val (val_size relative to full -> convert relative to rest)
     val_rel = cfg.val_size / (cfg.train_size + cfg.val_size)
 
     best = None
@@ -106,7 +100,6 @@ def split_by_movie_id(
 
     df_train, df_val = best
 
-    # order + reset index
     for d in (df_train, df_val, df_test):
         d.sort_values(["movie_id", "review_id"], inplace=True)
         d.reset_index(drop=True, inplace=True)

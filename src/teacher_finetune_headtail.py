@@ -21,7 +21,6 @@ from sklearn.metrics import (
 )
 
 def bf16_supported() -> bool:
-    """Check se la GPU supporta bf16 (Ampere o superiori)."""
     if not torch.cuda.is_available():
         return False
     if torch.cuda.get_device_capability()[0] >= 8:
@@ -33,7 +32,7 @@ class TeacherModelConfig:
     model_name: str = "bert-base-uncased"
     hidden_dropout_prob: float = 0.1
     attention_probs_dropout_prob: float = 0.1
-    gradient_checkpointing: bool = True # Cruciale per VRAM 8GB
+    gradient_checkpointing: bool = True 
 
 def build_teacher_tokenizer(model_name: str):
     return AutoTokenizer.from_pretrained(model_name, use_fast=True)
@@ -54,15 +53,11 @@ def build_teacher_model(cfg: TeacherModelConfig):
     return model
 
 def get_llrd_optimizer_parameters(model, learning_rate, weight_decay, layer_decay=0.95):
-    """
-    Layer-wise Learning Rate Decay (LLRD).
-    Il LR decresce man mano che si scende verso i primi layer (embedding).
-    """
+
     opt_parameters = []
     named_parameters = list(model.named_parameters())
     no_decay = ["bias", "LayerNorm.bias", "LayerNorm.weight"]
     
-    # 1. Head (Classifier + Pooler) - LR Pieno
     head_lr = learning_rate
     head_params = {"params": [], "weight_decay": weight_decay, "lr": head_lr}
     head_params_no_decay = {"params": [], "weight_decay": 0.0, "lr": head_lr}
@@ -76,8 +71,6 @@ def get_llrd_optimizer_parameters(model, learning_rate, weight_decay, layer_deca
     
     opt_parameters.extend([head_params, head_params_no_decay])
 
-    # 2. Encoder Layers - Decay progressivo
-    # Bert ha 12 layer (0-11). Partiamo dall'11 (più alto) scendendo allo 0.
     if hasattr(model, "bert") and hasattr(model.bert, "encoder"):
         layers = model.bert.encoder.layer
         curr_lr = head_lr
@@ -97,7 +90,6 @@ def get_llrd_optimizer_parameters(model, learning_rate, weight_decay, layer_deca
             
             opt_parameters.extend([layer_params, layer_params_no_decay])
 
-    # 3. Embeddings - LR Minimo
     curr_lr *= layer_decay
     emb_params = {"params": [], "weight_decay": weight_decay, "lr": curr_lr}
     emb_params_no_decay = {"params": [], "weight_decay": 0.0, "lr": curr_lr}
@@ -114,9 +106,6 @@ def get_llrd_optimizer_parameters(model, learning_rate, weight_decay, layer_deca
     return opt_parameters
 
 class WeightedCETrainer(Trainer):
-    """
-    Trainer custom per gestire la Weighted Binary Cross Entropy.
-    """
     def __init__(self, *args, class_weights=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.class_weights = class_weights
@@ -128,10 +117,7 @@ class WeightedCETrainer(Trainer):
         outputs = model(**inputs)
         logits = outputs.get("logits")
         
-        # Flattening
-        #logits = logits.view(-1)
-        #labels = labels.view(-1).float()
-        
+ 
         if self.class_weights is not None:
             w = self.class_weights.to(logits.device)
             loss_fct = nn.CrossEntropyLoss(weight=w)
@@ -146,10 +132,9 @@ def compute_metrics(p):
         if isinstance(predictions, tuple):
             predictions = predictions[0]
 
-        logits = predictions  # [N,2]
+        logits = predictions  
         labels = labels.reshape(-1)
 
-        # prob classe 1
         probs = torch.softmax(torch.tensor(logits), dim=-1).numpy()[:, 1]
 
         preds = (probs >= 0.5).astype(int)

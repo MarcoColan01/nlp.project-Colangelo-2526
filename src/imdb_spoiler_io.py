@@ -12,7 +12,6 @@ class ImdbSpoilerSchema:
 
 def _guess_schema(df: pd.DataFrame) -> ImdbSpoilerSchema:
     cols = set(df.columns)
-    # Mapping flessibile per gestire vari format
     text_candidates = ["review_text", "review", "text", "comment", "content"]
     label_candidates = ["is_spoiler", "spoiler", "label", "isSpoiler"]
     movie_candidates = ["movie_id", "movieId", "imdb_id", "imdbId", "movie"]
@@ -29,28 +28,23 @@ def _guess_schema(df: pd.DataFrame) -> ImdbSpoilerSchema:
     )
 
 def _read_json_any(path: Path) -> pd.DataFrame:
-    """Prova a leggere JSONL, se fallisce prova JSON standard."""
     try:
         return pd.read_json(path, lines=True)
     except ValueError:
         return pd.read_json(path, lines=False)
 
 def load_raw_imdb_spoiler_json(raw_dir: Path) -> pd.DataFrame:
-    """Carica il dataset JSON. Priorità a IMDB_reviews.json."""
     raw_dir = raw_dir.resolve()
     
-    # Priorità al file specifico nominato
     specific_file = raw_dir / "IMDB_reviews.json"
     if specific_file.exists():
         print(f"Loading specific file: {specific_file}")
         return _read_json_any(specific_file)
 
-    # Fallback su qualsiasi json
     files = list(raw_dir.glob("*.json")) + list(raw_dir.glob("*.jsonl"))
     if not files:
         raise FileNotFoundError(f"Nessun file .json trovato in {raw_dir}")
     
-    # Se multipli, concatena (utile per dataset sharded)
     print(f"Found {len(files)} JSON files. Concatenating...")
     dfs = []
     for f in sorted(files):
@@ -74,13 +68,11 @@ def prepare_reviews_dataframe(
     df = df[["movie_id", "text", "label"]].dropna()
     df["text"] = df["text"].astype(str)
 
-    # Normalizzazione label flessibile
     if df["label"].dtype == object:
          df["label"] = df["label"].astype(str).str.lower().map(
             {"1": 1, "0": 0, "true": 1, "false": 0, "yes": 1, "no": 0}
         )
     
-    # Coerce to numeric e fillna
     df["label"] = pd.to_numeric(df["label"], errors='coerce').fillna(0).astype(int)
     
     df["review_id"] = range(len(df))
@@ -91,7 +83,6 @@ def save_processed_reviews(
     processed_dir: Path,
     save_csv: bool = False,
 ) -> Path:
-    """Salva il dataframe processato in formato Parquet (e opzionalmente CSV)."""
     processed_dir.mkdir(parents=True, exist_ok=True)
     out_parquet = processed_dir / "reviews.parquet"
     df.to_parquet(out_parquet, index=False)
