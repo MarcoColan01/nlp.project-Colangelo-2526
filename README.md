@@ -210,3 +210,7 @@ The full project [report](report/sn-article.pdf) is available in this repository
     - Ji, G., & Zhu, Z. (2020). Knowledge distillation in wide neural networks: Risk bound, data efficiency and imperfect teacher. Advances in Neural Information Processing Systems, 33, 20823-20833.
 - Fine Tuning BERT for Spoiler Detection. This paper introduces a head+tail truncation strategy of IMDb reviews. Since BERT has a maximum token size of 512, review text often exceeds this limit. The authors found that, in case of overflow, the best truncation strategy (post-tokenization of reviews text) involves retaining only the first 128 tokens (useful because they introduce important context for the review) and the last 382 tokens (which often contain the actual spoiler). The special token [CLS] is attached at the beginning of the resulting sequence, while the special token [SEP] is attached at the end. Furthermore, they found that a layer-wise learning rate decay is able to avoid catastrophic forgetting during fine-tuning.
     - Sun, Qiu, Xu & Huang (2020). How to Fine-Tune BERT for Text Classification?
+
+## AI Usage Disclaimer
+In this project, the GPT 5.2 model was used to assist in writing the code (especially debugging), to generate the code for analyzing the results and creating the graphs, and to refine the report structure.
+However, all ideas proposed in this project are the sole property of the author. The GPT 5.2 model was used exclusively to assist in the development of the project; all material produced by it was carefully reviewed and tested by the author.
