@@ -201,7 +201,7 @@ This makes the distilled model the best efficiency--performance compromise among
 
 ## Report and slides
 
-The full project [report](report/sn-article.pdf) is available in this repository, as weel as the presentation [slides]().
+The full project [report](report/sn-article.pdf) is available in this repository, as weel as the presentation [slides](report/NLP_slides.pdf).
 
 ## References
 - Knowledge Distillation and TinyBERT structure. The first paper introduces the concept of Knowledge Distillation, the second paper introduces the TinyBERT model and the two phase task-specific distillation procotol and the third paper introduces the concept of "imperfect teacher", useful to correct prediction-layer distillation including also hard labels.
